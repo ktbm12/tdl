@@ -1,69 +1,110 @@
-{% extends 'base.html' %}
-
-{% block title %}Nos Réalisations | TDL Construction{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block title %}Nos Réalisations | TDL Construction{%
+endblock %} {% block content %}
 <main class="pt-32 pb-24">
-<!-- Hero Section & Title -->
-<section class="max-w-7xl mx-auto px-8 mb-16">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
-<div class="max-w-2xl">
-<span class="font-label uppercase tracking-[0.2em] text-on-tertiary-container text-xs font-bold mb-4 block">Notre Portefeuille</span>
-<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tight text-primary leading-tight">
-                        Nos Réalisations
-                    </h1>
-</div>
-<!-- Filter Interface -->
-<div class="flex flex-wrap gap-2">
-<button class="px-6 py-2 rounded-full bg-primary text-white font-medium text-sm transition-all">All</button>
-<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-all border border-transparent">Houses</button>
-<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-all border border-transparent">Infrastructure</button>
-<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-all border border-transparent">Renovation</button>
-</div>
-</div>
-<div class="mt-8 h-[1px] w-full bg-outline-variant opacity-20"></div>
-</section>
-<!-- Projects Grid (Bento/Asymmetric Style) -->
-<section class="max-w-7xl mx-auto px-8">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-{% for project in projects %}
-<div class="{% if forloop.counter|divisibleby:3 %}md:col-span-12{% elif forloop.counter|divisibleby:2 %}md:col-span-4{% else %}md:col-span-8{% endif %} group relative overflow-hidden rounded-md project-card aspect-video md:aspect-auto h-[400px]">
-<img alt="{{ project.title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ project.image.url }}"/>
-<div class="overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 md:p-12 backdrop-blur-sm">
-<span class="text-on-tertiary-container font-label uppercase tracking-widest text-xs mb-2">{{ project.get_category_display }}</span>
-<h3 class="text-white font-headline text-2xl md:text-3xl font-bold">{{ project.title }}</h3>
-<p class="text-white/80 font-body mt-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">location_on</span> {{ project.location }}
-</p>
-</div>
-</div>
-{% empty %}
-<div class="md:col-span-12 text-center py-24 text-on-surface-variant italic">
-    Aucun projet disponible dans le portfolio pour le moment.
-</div>
-{% endfor %}
-</div>
-</section>
-<!-- CTA Section -->
-<section class="mt-24 max-w-7xl mx-auto px-8">
-<div class="bg-primary-container rounded-xl p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
-<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary-container/20 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-<div class="relative z-10">
-<h2 class="font-headline text-3xl font-bold text-white mb-4">Prêt à démarrer votre projet ?</h2>
-<p class="text-on-primary-container max-w-md">De la conception à la réalisation finale, TDL Construction vous accompagne dans chaque étape de votre vision architecturale.</p>
-</div>
-<div class="relative z-10">
-<button onclick="openModal()" class="bg-[#FE771B] text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform duration-300">
-                        Contactez Nos Ingénieurs
-                    </button>
-</div>
-</div>
-</section>
+  <!-- Hero Section & Title -->
+  <section class="max-w-7xl mx-auto px-8 mb-16">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div class="max-w-2xl">
+        <span
+          class="font-label uppercase tracking-[0.2em] text-on-tertiary-container text-xs font-bold mb-4 block"
+          >Notre Portefeuille</span
+        >
+        <h1
+          class="font-headline text-5xl md:text-7xl font-bold tracking-tight text-primary leading-tight"
+        >
+          Nos Réalisations
+        </h1>
+      </div>
+      <!-- Filter Interface -->
+      <div class="flex flex-wrap gap-2">
+        <button
+          class="px-6 py-2 rounded-full bg-primary text-white font-medium text-sm transition-all"
+        >
+          All
+        </button>
+        <button
+          class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-all border border-transparent"
+        >
+          Houses
+        </button>
+        <button
+          class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-all border border-transparent"
+        >
+          Infrastructure
+        </button>
+        <button
+          class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-medium text-sm hover:bg-surface-container-highest transition-all border border-transparent"
+        >
+          Renovation
+        </button>
+      </div>
+    </div>
+    <div class="mt-8 h-[1px] w-full bg-outline-variant opacity-20"></div>
+  </section>
+  <!-- Projects Grid (Bento/Asymmetric Style) -->
+  <section class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      {% for project in projects %}
+      <div
+        class="{% if forloop.counter|divisibleby:3 %}md:col-span-12{% elif forloop.counter|divisibleby:2 %}md:col-span-4{% else %}md:col-span-8{% endif %} group relative overflow-hidden rounded-md project-card aspect-video md:aspect-auto h-[400px]"
+      >
+        <img
+          alt="{{ project.title }}"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          src="{{ project.image.url }}"
+        />
+        <div
+          class="overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 md:p-12 backdrop-blur-sm"
+        >
+          <span
+            class="text-on-tertiary-container font-label uppercase tracking-widest text-xs mb-2"
+            >{{ project.get_category_display }}</span
+          >
+          <h3 class="text-white font-headline text-2xl md:text-3xl font-bold">
+            {{ project.title }}
+          </h3>
+          <p class="text-white/80 font-body mt-2 flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            {{ project.location }}
+          </p>
+        </div>
+      </div>
+      {% empty %}
+      <div
+        class="md:col-span-12 text-center py-24 text-on-surface-variant italic"
+      >
+        Aucun projet disponible dans le portfolio pour le moment.
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <!-- CTA Section -->
+  <section class="mt-24 max-w-7xl mx-auto px-8">
+    <div
+      class="bg-primary-container rounded-xl p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"
+    >
+      <div
+        class="absolute top-0 right-0 w-64 h-64 bg-tertiary-container/20 rounded-full -mr-32 -mt-32 blur-3xl"
+      ></div>
+      <div class="relative z-10">
+        <h2 class="font-headline text-3xl font-bold text-white mb-4">
+          Prêt à démarrer votre projet ?
+        </h2>
+        <p class="text-on-primary-container max-w-md">
+          De la conception à la réalisation finale, TDL Construction vous
+          accompagne dans chaque étape de votre vision architecturale.
+        </p>
+      </div>
+      <div class="relative z-10">
+        <button
+          onclick="openModal()"
+          class="bg-[#FE771B] text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform duration-300"
+        >
+          Contactez Nos Ingénieurs
+        </button>
+      </div>
+    </div>
+  </section>
 </main>
-{% endblock %}
-
-{% block extra_style %}
-        .project-card:hover .overlay {
-            opacity: 1;
-        }
-{% endblock %}
+{% endblock %} {% block extra_style %} .project-card:hover .overlay { opacity:
+1; } {% endblock %}

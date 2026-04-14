@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-container": "#fe771b",
+                "error": "#ba1a1a",
+                "on-primary-fixed-variant": "#3f3c8d",
+                "on-error": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "inverse-on-surface": "#f1f1f1",
+                "on-error-container": "#93000a",
+                "secondary": "#5e5e5e",
+                "secondary-fixed": "#e2e2e2",
+                "surface-variant": "#e2e2e2",
+                "inverse-surface": "#2f3131",
+                "on-primary": "#ffffff",
+                "primary-container": "#2e2a7b",
+                "background": "#f9f9f9",
+                "outline": "#777682",
+                "surface": "#f9f9f9",
+                "surface-container-highest": "#e2e2e2",
+                "on-primary-container": "#9896ed",
+                "tertiary-fixed": "#ffdbca",
+                "secondary-fixed-dim": "#c6c6c6",
+                "on-primary-fixed": "#110661",
+                "on-tertiary-fixed": "#341100",
+                "on-secondary-fixed-variant": "#474747",
+                "tertiary": "#3b1500",
+                "surface-tint": "#5755a7",
+                "surface-bright": "#f9f9f9",
+                "on-secondary-container": "#646464",
+                "inverse-primary": "#c3c0ff",
+                "error-container": "#ffdad6",
+                "on-secondary": "#ffffff",
+                "surface-container": "#eeeeee",
+                "on-tertiary-fixed-variant": "#783200",
+                "surface-dim": "#dadada",
+                "primary": "#170f66",
+                "tertiary-fixed-dim": "#ffb690",
+                "on-tertiary": "#ffffff",
+                "surface-container-low": "#f3f3f3",
+                "on-surface-variant": "#474551",
+                "primary-fixed": "#e2dfff",
+                "secondary-container": "#e2e2e2",
+                "primary-fixed-dim": "#c3c0ff",
+                "on-secondary-fixed": "#1b1b1b",
+                "tertiary-container": "#5d2500",
+                "on-surface": "#1a1c1c",
+                "outline-variant": "#c8c5d3",
+                "surface-container-high": "#e8e8e8",
+                "on-background": "#1a1c1c"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Noto Serif"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-8 py-4 max-w-8xl mx-auto">
+<div class="text-2xl font-serif font-black text-[#170F66] dark:text-white tracking-tighter">
+                TDL Construction
+            </div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">Home</a>
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-[#FE771B] border-b-2 border-[#FE771B] pb-1 hover:scale-105 transition-transform duration-300" href="#">Services</a>
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">Projects</a>
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">About</a>
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">Contact</a>
+<button class="bg-[#FE771B] text-white px-6 py-2 rounded-xl font-sans text-sm font-bold uppercase tracking-wider hover:scale-105 transition-transform duration-300 shadow-lg shadow-orange-500/20">
+                    Get a Quote
+                </button>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-[#170F66]">menu</span>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<header class="relative h-[614px] min-h-[500px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Construction Banner" class="w-full h-full object-cover" data-alt="Modern construction site with a large crane and skeletal steel structure against a clear blue sky at sunset, professional and industrial mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACNcnOPQP5tmP9CNFs153ca9nWmA-7e6JThnrx5opX7kLsAZ2Th3rAfon8yXOqaoR8Hg4w-gfDtJ0zkbhjZ4k8kWb195fgXQuOp7ObrU_vePpo5nsg5cpOnHv5nK-RHXkcju8zTKOlev9QY_FKx4dtwQXVLdCPPD20Nwg3nnymOEKoOHSGFm0zM2vSAjZv2YdDqXujuWpGU9x8mVkqDJd3U96dC-Y88we0KaepGsGuIbq7RIjr3iaBd3GzLbC1fWUvVZMwyxM0"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent opacity-80"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<span class="inline-block py-1 px-3 bg-on-tertiary-container/10 text-on-tertiary-container rounded font-label text-xs font-bold tracking-[0.2em] uppercase mb-4">Expertise Civile</span>
+<h1 class="font-headline text-5xl md:text-7xl font-black text-white leading-tight tracking-tight mb-6">
+                        Construction de bâtiments
+                    </h1>
+<p class="text-white/80 text-lg md:text-xl font-light leading-relaxed">
+                        Ingénierie de précision et exécution d'élite pour les infrastructures résidentielles et commerciales de demain.
+                    </p>
+</div>
+</div>
+</header>
+<!-- Detailed Description -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<div class="lg:col-span-7">
+<h2 class="font-headline text-3xl font-bold text-primary mb-8">L'Excellence Structurelle comme Standard</h2>
+<div class="space-y-6 text-on-surface-variant leading-loose text-lg">
+<p>
+                                Chez TDL Construction, nous ne nous contentons pas de bâtir des structures ; nous érigeons des monuments de durabilité. Notre approche de la <span class="font-semibold text-primary">construction de bâtiments</span> repose sur une fusion rigoureuse entre les méthodes artisanales éprouvées et les technologies d'ingénierie les plus avancées du XXIe siècle.
+                            </p>
+<p>
+                                Chaque projet commence par une analyse approfondie des contraintes géotechniques et environnementales. Nos équipes d'experts collaborent étroitement avec les architectes pour garantir que chaque poutre, chaque dalle et chaque fondation dépasse les normes de sécurité internationales tout en optimisant l'efficacité énergétique.
+                            </p>
+<p>
+                                Nous maîtrisons l'intégralité de la chaîne de valeur, de la logistique complexe des matériaux lourds à la finition de précision. Notre engagement envers l'excellence se reflète dans notre capacité à livrer des structures complexes dans des délais compressés, sans jamais compromettre l'intégrité structurelle qui fait notre renommée.
+                            </p>
+</div>
+</div>
+<div class="lg:col-span-5 space-y-8">
+<div class="bg-surface-container-low p-8 rounded-xl border-l-4 border-on-tertiary-container">
+<h3 class="font-headline text-xl font-bold text-primary mb-4">Chiffres Clés</h3>
+<ul class="space-y-4">
+<li class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-on-surface-variant">Projets Livrés</span>
+<span class="font-bold text-primary">450+</span>
+</li>
+<li class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-on-surface-variant">Précision Structurelle</span>
+<span class="font-bold text-primary">0.02mm</span>
+</li>
+<li class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-on-surface-variant">Matériaux Certifiés</span>
+<span class="font-bold text-primary">100%</span>
+</li>
+</ul>
+</div>
+<img alt="Engineering Details" class="w-full h-64 object-cover rounded-xl shadow-lg" data-alt="Close-up of high-quality architectural concrete and steel junction, clean lines and morning light, professional photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3zrkjZar7Fgw1TVkIMDBPs06tze9vNeqaAX9XJ6WMWRC1vNUCV6wxEBtv2mfMamnvDw7USr-FdIXg_ERuSenLqxp-ta84B0CUaiqrpukzCaNV5IOghv9zjTH4ZBIbhzrn6TfsPJY6_HYsE0bJsots3as0VI11CMY5PnhFxd7uzkJ_ODeudBoJRhutzD76RbokiMOB5EUy4p4MfVdMiAWnS-Y78EGtR9xJTBU51znGfoLaAkz1GPyqEco9wkFon_ybw-R7zz2h"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Steps (Timeline) -->
+<section class="py-24 bg-surface-container">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl font-bold text-primary">Cycle de Vie du Projet</h2>
+<p class="text-on-surface-variant mt-4 font-label tracking-wide uppercase text-sm">Méthodologie Étape par Étape</p>
+</div>
+<div class="relative">
+<!-- Timeline Line -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant/30 hidden lg:block -translate-y-1/2"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Step 1 -->
+<div class="relative z-10 group">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-6 group-hover:scale-110 transition-transform">01</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-3">Planning &amp; Design</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Conceptualisation architecturale, études de sol et planification logistique détaillée.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 group">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-6 group-hover:scale-110 transition-transform">02</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-3">Excavation</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Préparation du site, terrassement et mise en place des fondations stratégiques.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 group">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
+<div class="w-12 h-12 bg-[#FE771B] rounded-full flex items-center justify-center text-white font-bold mb-6 group-hover:scale-110 transition-transform">03</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-3">Construction</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Élévation de la structure porteuse et intégration des systèmes techniques primaires.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 group">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-6 group-hover:scale-110 transition-transform">04</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-3">Quality Check</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Inspections rigoureuses et tests de conformité avant la livraison finale.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise Highlights (Bento Grid) -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-12">
+<h2 class="font-headline text-3xl font-bold text-primary">Capacités Techniques</h2>
+<div class="w-20 h-1 bg-[#FE771B] mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-primary p-8 rounded-xl text-white flex flex-col justify-between overflow-hidden relative">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-4 text-on-tertiary-container">foundation</span>
+<h3 class="text-2xl font-bold mb-2">Génie Civil Avancé</h3>
+<p class="text-white/70 max-w-md">Expertise en infrastructures complexes, incluant les fondations spéciales et les structures en béton armé haute performance.</p>
+</div>
+<div class="absolute right-0 bottom-0 opacity-20 transform translate-x-10 translate-y-10">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 rounded-xl group hover:bg-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl mb-4 text-[#FE771B] group-hover:text-white">construction</span>
+<h3 class="text-xl font-bold text-primary group-hover:text-white mb-2">Charpente Métallique</h3>
+<p class="text-on-surface-variant group-hover:text-white/70 text-sm">Précision millimétrique dans l'assemblage de structures en acier.</p>
+</div>
+<div class="bg-surface-container-high p-8 rounded-xl group hover:bg-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl mb-4 text-[#FE771B] group-hover:text-white">eco</span>
+<h3 class="text-xl font-bold text-primary group-hover:text-white mb-2">Construction Durable</h3>
+<p class="text-on-surface-variant group-hover:text-white/70 text-sm">Intégration de matériaux biosourcés et optimisation de l'empreinte carbone.</p>
+</div>
+<div class="md:col-span-2 bg-white p-8 rounded-xl border border-outline-variant/30 flex flex-col md:flex-row gap-8 items-center">
+<div class="w-full md:w-1/3">
+<img alt="Work in progress" class="rounded-lg object-cover h-40 w-full" data-alt="Professional builder in high-visibility gear checking technical blueprints on a digital tablet at a construction site" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDcDY4U4EF_eMLwKpuduvPiTpC4JsDhqKZ2LV8yw4bt0Qkf5AHRDUHIqfKkaCWfEn9Js-UZ0fMSOAX86epK9TvsJZ_Zzid08XcwcYUy92jgQf6ew7reVD-DZZBuk6QXAz-qhTm5KclpVWYS7BRdpZWNR20BRj-yfK6CcnfDlf9nNxySca5dva1hOs4PApPDVttmyv15lYtC4_CTYAEAI9mPbHg1SatO66ypBQ70qc1SzeyLfQ-mdRDvvFrkqrd2fB3JVjoraeS"/>
+</div>
+<div class="w-full md:w-2/3">
+<h3 class="text-xl font-bold text-primary mb-2">Logistique de Site Intelligente</h3>
+<p class="text-on-surface-variant text-sm">Utilisation du BIM (Building Information Modeling) pour une gestion de flux sans faille sur les chantiers urbains denses.</p>
+<div class="mt-4 flex gap-4">
+<span class="text-xs font-bold font-label bg-surface-container px-2 py-1 rounded text-primary">BIM LEVEL 3</span>
+<span class="text-xs font-bold font-label bg-surface-container px-2 py-1 rounded text-primary">ISO 9001</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-primary relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-container to-primary"></div>
+<div class="max-w-4xl mx-auto px-8 relative z-10 text-center">
+<h2 class="font-headline text-4xl md:text-5xl font-bold text-white mb-8">Prêt à transformer vos plans en réalité ?</h2>
+<p class="text-on-primary-container text-lg mb-12 max-w-2xl mx-auto">
+                    Contactez nos ingénieurs dès aujourd'hui pour une analyse préliminaire de votre projet et une estimation détaillée sous 48 heures.
+                </p>
+<button class="bg-[#FE771B] text-white px-12 py-5 rounded-full font-sans text-lg font-black uppercase tracking-widest hover:scale-105 transition-transform duration-300 shadow-2xl shadow-orange-500/40">
+                    Demander un devis
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-none border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-8xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-serif font-bold text-slate-900 dark:text-white mb-6">TDL Construction</div>
+<p class="font-sans text-slate-600 text-sm leading-relaxed">
+                    Construire l'avenir avec intégrité et précision. Engineering Excellence depuis plus de 25 ans.
+                </p>
+</div>
+<div>
+<h4 class="font-serif text-lg font-bold text-[#170F66] dark:text-indigo-300 mb-6">Liens Rapides</h4>
+<ul class="space-y-3">
+<li><a class="font-sans text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Secteur Résidentiel</a></li>
+<li><a class="font-sans text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Secteur Industriel</a></li>
+<li><a class="font-sans text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Rénovation Majeure</a></li>
+<li><a class="font-sans text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Génie Civil</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-serif text-lg font-bold text-[#170F66] dark:text-indigo-300 mb-6">Entreprise</h4>
+<ul class="space-y-3">
+<li><a class="font-sans text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Privacy Policy</a></li>
+<li><a class="font-sans text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Terms of Service</a></li>
+<li><a class="font-sans text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Safety Standards</a></li>
+<li><a class="font-sans text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-serif text-lg font-bold text-[#170F66] dark:text-indigo-300 mb-6">Suivez-nous</h4>
+<div class="flex space-x-4">
+<a class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined text-primary text-xl">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined text-primary text-xl">public</span>
+</a>
+</div>
+<div class="mt-8 text-xs font-sans text-slate-500">
+                    © 2024 TDL Construction. Engineering Excellence.
+                </div>
+</div>
+</div>
+</footer>
+</body></html>

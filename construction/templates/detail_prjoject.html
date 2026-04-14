@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TDL Construction | Project Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#fe771b",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#3f3c8d",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-error-container": "#93000a",
+                    "secondary": "#5e5e5e",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-variant": "#e2e2e2",
+                    "inverse-surface": "#2f3131",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#2e2a7b",
+                    "background": "#f9f9f9",
+                    "outline": "#777682",
+                    "surface": "#f9f9f9",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-primary-container": "#9896ed",
+                    "tertiary-fixed": "#ffdbca",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "on-primary-fixed": "#110661",
+                    "on-tertiary-fixed": "#341100",
+                    "on-secondary-fixed-variant": "#474747",
+                    "tertiary": "#3b1500",
+                    "surface-tint": "#5755a7",
+                    "surface-bright": "#f9f9f9",
+                    "on-secondary-container": "#646464",
+                    "inverse-primary": "#c3c0ff",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed-variant": "#783200",
+                    "surface-dim": "#dadada",
+                    "primary": "#170f66",
+                    "tertiary-fixed-dim": "#ffb690",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f3f3f3",
+                    "on-surface-variant": "#474551",
+                    "primary-fixed": "#e2dfff",
+                    "secondary-container": "#e2e2e2",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-secondary-fixed": "#1b1b1b",
+                    "tertiary-container": "#5d2500",
+                    "on-surface": "#1a1c1c",
+                    "outline-variant": "#c8c5d3",
+                    "surface-container-high": "#e8e8e8",
+                    "on-background": "#1a1c1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift-via-blur {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+        }
+        h1, h2, h3 {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-8 py-4 max-w-8xl mx-auto">
+<div class="text-2xl font-serif font-black text-[#170F66] dark:text-white tracking-tighter">
+                TDL Construction
+            </div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">Home</a>
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">Services</a>
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-[#FE771B] border-b-2 border-[#FE771B] pb-1 hover:scale-105 transition-transform duration-300" href="#">Projects</a>
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">About</a>
+<a class="font-sans text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">Contact</a>
+</div>
+<button class="bg-[#FE771B] text-white px-6 py-2 rounded-xl text-sm font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-300">
+                Get a Quote
+            </button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Breadcrumb / Back Navigation -->
+<div class="max-w-7xl mx-auto px-6 mb-8">
+<a class="inline-flex items-center text-primary font-medium hover:text-on-tertiary-container transition-colors group" href="#">
+<span class="material-symbols-outlined mr-2 text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span class="font-label text-sm uppercase tracking-widest">Back to Projects</span>
+</a>
+</div>
+<!-- Project Hero Section -->
+<section class="max-w-7xl mx-auto px-6 mb-16">
+<div class="relative h-[600px] overflow-hidden rounded-xl shadow-2xl">
+<img alt="Completed architectural project" class="w-full h-full object-cover" data-alt="Modern high-rise glass building exterior reflecting a clear blue sky with architectural precision and sharp geometric lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANk9gqtZOMS9yXjVEWS36SbO4_38BCMuOy1rQlPNtwrHiS-GOPJT2B_N0Ac0f-OKLBkk2rqkDOcxY2sBtTEbokxXrE8SG4YV2ce84Q7KOKkrmy3VF-pS2lRxIA0WFDUcPtr-CRHMC66mmCLblCMbHQQVGbAUSyWci4uD-ZzanhwQPDkZOMGj_rjmPSzhsgivC3UkKP6gvgsmdOnllU7hxeAm_RI060iJIlALOIYUTVA9Kk_ltZSKgWKHeHI9t7A2uQ8NOgojvJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-12 left-12 right-12">
+<span class="text-on-tertiary-container font-label uppercase tracking-[0.2em] text-sm mb-4 block">Commercial Excellence</span>
+<h1 class="text-white text-5xl md:text-7xl font-black tracking-tight leading-none mb-4">The Meridian Plaza</h1>
+<p class="text-white/80 max-w-2xl font-body text-lg italic">A testament to vertical engineering and sustainable architectural design.</p>
+</div>
+</div>
+</section>
+<!-- Project Overview & Metrics Bento Grid -->
+<section class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
+<!-- Main Content -->
+<div class="lg:col-span-2 space-y-12">
+<div class="bg-surface-container-lowest p-10 rounded-xl">
+<h2 class="text-3xl font-bold text-primary mb-6">Overview</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg mb-6">
+                        The Meridian Plaza stands as a pinnacle of modern civil engineering, integrating advanced seismic-resistant technology with a sleek, minimalist aesthetic. Located in the heart of the business district, this 42-story marvel features over 800,000 square feet of premium office space, a triple-height atrium, and state-of-the-art sustainable systems.
+                    </p>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                        TDL Construction oversaw every phase from site excavation through to the final structural glazing, ensuring the highest standards of safety and material integrity were met. The project serves as a new anchor for urban development, blending commercial functionality with communal open spaces.
+                    </p>
+</div>
+<!-- Before & After Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="relative group">
+<div class="absolute top-4 left-4 z-10 bg-primary px-3 py-1 text-white font-label text-xs uppercase tracking-widest rounded-md">Site Baseline</div>
+<img class="w-full h-80 object-cover rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Initial construction site with heavy machinery, exposed foundations, and dirt terrain during early development phase" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhHWitpKrPKJUChxCrfTHmG_Caa8Wj7C11a09Vcxw-Yoz_IdQJ0Feg2KnS8cShwg_-9HzHnOnPIwp1PsRcZR4VP6372GsD3p1Icji7rMGq8Mkl8_-xGuWCxeoqb1Xf6CL4Glkts63j_XplMdyrL3QCSw-3kPFZXXjyUrbhVeigsTiYXEvNirKdCNaJyxHcGhwJ27guBXzBYhoaABL1HGYzezV124km3qbOGUAEt_ksKSlW-VvakKwPVepLtQXJ5dahJAW-0PWp"/>
+</div>
+<div class="relative group">
+<div class="absolute top-4 left-4 z-10 bg-on-tertiary-container px-3 py-1 text-white font-label text-xs uppercase tracking-widest rounded-md">Completion</div>
+<img class="w-full h-80 object-cover rounded-xl" data-alt="Finalized architectural building with polished glass facade, clean landscaping, and modern structural detailing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnktOlk1QFhp1gwOAcsgFUK8pHIfvk2sLHCAtr7tnAYx5obHBxHBIrFZqTpIxA53p-_Kq4rEiySZZ4o0XSXVjaiwAestlqQMrVywRnghaVlbVMk1YFeLnhPIZ4hQcTjJJE0qQffkbX-PE8pmXgNzrX5LqRRibsvm_Me4qYEypY1s7TQbhqSO8tx5c9DWiAVaXRPNK8SQJeOK5PHynmo7hlW5ySLYxNP9i5G0WtYV7THE7dzZH4ADB60m2Ff1us1A_TP-NlQITx"/>
+</div>
+</div>
+</div>
+<!-- Sidebar Metrics -->
+<div class="space-y-6">
+<div class="bg-surface-container p-8 rounded-xl border border-outline-variant/15">
+<h3 class="text-xl font-bold text-primary mb-8 border-b border-outline-variant pb-4">Technical Details</h3>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1">calendar_today</span>
+<div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Duration</p>
+<p class="text-lg font-bold text-on-surface">26 Months</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1">payments</span>
+<div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Project Cost</p>
+<p class="text-lg font-bold text-on-surface">$142M USD</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1">location_on</span>
+<div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Location</p>
+<p class="text-lg font-bold text-on-surface" data-location="Chicago, IL">Chicago, IL</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1">person</span>
+<div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Client</p>
+<p class="text-lg font-bold text-on-surface">Vanguard Properties</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1">architecture</span>
+<div>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Total Area</p>
+<p class="text-lg font-bold text-on-surface">840,000 SQ FT</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary p-8 rounded-xl text-white">
+<p class="text-sm font-label uppercase tracking-widest opacity-70 mb-2">Service Provided</p>
+<p class="text-xl font-bold leading-tight mb-6">Full Design-Build Civil Engineering</p>
+<button class="w-full py-3 bg-on-tertiary-container text-white rounded-lg font-bold text-sm uppercase tracking-widest hover:brightness-110 transition-all">
+                        Inquire About Similar
+                    </button>
+</div>
+</div>
+</section>
+<!-- Image Gallery Grid -->
+<section class="max-w-7xl mx-auto px-6 mb-24">
+<div class="flex items-center justify-between mb-10">
+<h2 class="text-3xl font-bold text-primary">Gallery &amp; Details</h2>
+<div class="h-px flex-grow mx-8 bg-outline-variant/20 hidden md:block"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="h-64 overflow-hidden rounded-md group">
+<img class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500" data-alt="Detailed view of high-performance architectural glass and steel beams under bright sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSm-nKGg-rn-wCJLwUkOd2MBmM2UblT6knD-IqisgjUAO_kp9SctZH7KTw6q33bLyCAVF4EU9uD89_ZUqDkNQMTFBXZlFTdatAcigrVOj27Qk4GrEXRCX2kQVLkqUursIxz3QjfWQY0-Hfl6xnTUL6ANVU6ZMQZ0xUzM5OpskZxS3JUIlYSb_HKykMcd41shq0zUci4S0nDTsxwDcfI1cTiYrerATUAw7vuPpRVXyJ6bS60UJNRGzmToflMo8adqXlNYcSzTVb"/>
+</div>
+<div class="h-64 overflow-hidden rounded-md group">
+<img class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500" data-alt="Minimalist interior atrium with sleek white surfaces and large open space flooded with natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa4XcKmwY_QNWfM0iczsBZ0hRsqL5ug7OTVoSTQ7oqivfkLaqntfvxFcFu5GY5WwDpzz7fl9hWphOh2OPgFcHFRJocgq4ml3JIy1b2NZ23gzkc8DDdX_ZnXGiPyVHBiLfZ7vHk6vHRcksakT0rAGYI_rT9lBdslyl9upjKkAbMqbJwaTxbO8OTwDkQuTpsTxvMogP8bKJIuBVloXbfgtzeOCBiGxO3SMaPxTPuW7nrRdrGVpE7VBRQq2YJVY8v9uINFDNH882i"/>
+</div>
+<div class="h-64 overflow-hidden rounded-md group">
+<img class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500" data-alt="Wide shot of modern urban construction landscape highlighting clean structural lines and symmetry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ntGnFwkDwcx43SSg9zXkfwNykFG0lgCcZC2JkWlenv2Y3lvJiYxMXSqUij2CkH6Ap-WAm7lfAe2PlPPkU9t8_5c9wqqbxyExkfHbpuJxzNlDCBG8wQR7jND27Adi6NKlZYhLVAu-y6JsGInlRu2GGwuYpa19IojabtfTlhdGd4_NQcRaFK_TSxi7xgU7qQRQ9BP9whI3afHrmWpB0ZQK0aA-2ArZXaA9gR5iLG0hMe43CZfqtC9Yehb8Af7IJCJvOKfPx611"/>
+</div>
+<div class="h-64 overflow-hidden rounded-md group">
+<img class="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500" data-alt="Close up of engineering blueprint and steel reinforcement details during the construction phase" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJwz-lN2V1zMU7U5SX1e9ITaUQv9Z_CBafaPaj52zMq3tyeQjeXFv5QG6oDNXfgFs9QM6F78_xYFBGFutAo4Nn8UWNJ84VKM_RjaYH13HfbHIlXxoEsve1dJVDjGClyLBszfnM1xydUKURawhoTZvD1gUaTwZw0s4iAVFlZjqWPEoSH_Z6eT8aZ-UBLO-TJexGs0klUYMU34NH_Wyl_rS_TxJS9P38KWpLLSShJC4zoeb_aak1uXLeYQOdzJJw_TZRpT-Ebw52"/>
+</div>
+</div>
+</section>
+<!-- Next Project Teaser -->
+<section class="bg-surface-container py-24">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant mb-4 block">Next Project</span>
+<h3 class="text-4xl md:text-5xl font-bold text-primary mb-8">Sapphire Residential Towers</h3>
+<a class="inline-block border-2 border-primary text-primary px-10 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all" href="#">
+                    View Project
+                </a>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full rounded-t-none border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16">
+<div class="space-y-6">
+<div class="text-xl font-serif font-bold text-slate-900 dark:text-white">TDL Construction</div>
+<p class="font-sans text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Excellence in civil engineering and high-end commercial construction. Building the skyline of tomorrow with precision.
+                </p>
+</div>
+<div>
+<h4 class="font-serif text-lg font-bold text-[#170F66] dark:text-indigo-300 mb-6">Navigation</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all font-sans text-sm" href="#">Services</a></li>
+<li><a class="text-[#FE771B] hover:underline transition-all font-sans text-sm" href="#">Projects</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all font-sans text-sm" href="#">About Us</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all font-sans text-sm" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-serif text-lg font-bold text-[#170F66] dark:text-indigo-300 mb-6">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all font-sans text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all font-sans text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all font-sans text-sm" href="#">Safety Standards</a></li>
+<li><a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all font-sans text-sm" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-serif text-lg font-bold text-[#170F66] dark:text-indigo-300 mb-6">Connect</h4>
+<div class="flex space-x-6">
+<a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">location_on</span></a>
+</div>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-400 text-xs tracking-widest uppercase">
+<span>© 2024 TDL Construction. Engineering Excellence.</span>
+<span class="mt-4 md:mt-0">Built by Architectural Systems Group</span>
+</div>
+</footer>
+</body></html>

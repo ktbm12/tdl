@@ -30,6 +30,7 @@ if env_file.exists():
     env.read_env(str(env_file))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATE_DIR = BASE_DIR / "construction" / "templates"
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,7 +40,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)b19-c(3iegl@$ej1ztq&r7bo0^qw1h+y@=)$qoeg-*3h!b(*h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DJANGO_DEBUG", env.bool("DEBUG", False))
+DEBUG = env.bool("DJANGO_DEBUG", env.bool("DEBUG", default=True))
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
@@ -70,13 +71,15 @@ ROOT_URLCONF = 'construction.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(TEMPLATE_DIR)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                'django.contrib.messages.context_processors.messages,
+
             ],
         },
     },

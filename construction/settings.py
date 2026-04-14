@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import environ
+
+import dj_database_url
+
+from decouple import config
+
 import os
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # bbpproject/
@@ -35,8 +40,7 @@ SECRET_KEY = 'django-insecure-)b19-c(3iegl@$ej1ztq&r7bo0^qw1h+y@=)$qoeg-*3h!b(*h
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", env.bool("DEBUG", False))
-
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -84,14 +88,19 @@ WSGI_APPLICATION = 'construction.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env(''),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT', default='5432'),
+        'NAME': config('DB_NAME', default='sentine'),
+        'USER': config('DB_USER', default='postgres'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT', default='5432'),
+        'OPTIONS': {
+            'options': f"-c search_path={config('DB_SCHEMA', default='public')}"
+        },
+        'CONN_MAX_AGE': 30,          # IMPORTANT
+        'CONN_HEALTH_CHECKS': True,  # IMPORTANT
     }
 }
-
+DATABASES["default"]["ATOMIC_REQUESTS"] = True 
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators

@@ -11,7 +11,18 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
+# bbpproject/
+APPS_DIR = BASE_DIR / "tdl"
+env = environ.Env()
 
+# Read .env file if it exists
+env_file = BASE_DIR / ".env"
+if env_file.exists():
+    # OS environment variables take precedence over variables from .env
+    env.read_env(str(env_file))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,9 +34,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)b19-c(3iegl@$ej1ztq&r7bo0^qw1h+y@=)$qoeg-*3h!b(*h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DJANGO_DEBUG", env.bool("DEBUG", False))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
 
 # Application definition
@@ -68,14 +79,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'construction.wsgi.application'
 
-
-# Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env(''),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT', default='5432'),
     }
 }
 

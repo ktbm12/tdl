@@ -1,117 +1,8 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contact | TDL Construction</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-tertiary-container": "#fe771b",
-                    "error": "#ba1a1a",
-                    "on-primary-fixed-variant": "#3f3c8d",
-                    "on-error": "#ffffff",
-                    "surface-container-lowest": "#ffffff",
-                    "inverse-on-surface": "#f1f1f1",
-                    "on-error-container": "#93000a",
-                    "secondary": "#5e5e5e",
-                    "secondary-fixed": "#e2e2e2",
-                    "surface-variant": "#e2e2e2",
-                    "inverse-surface": "#2f3131",
-                    "on-primary": "#ffffff",
-                    "primary-container": "#2e2a7b",
-                    "background": "#f9f9f9",
-                    "outline": "#777682",
-                    "surface": "#f9f9f9",
-                    "surface-container-highest": "#e2e2e2",
-                    "on-primary-container": "#9896ed",
-                    "tertiary-fixed": "#ffdbca",
-                    "secondary-fixed-dim": "#c6c6c6",
-                    "on-primary-fixed": "#110661",
-                    "on-tertiary-fixed": "#341100",
-                    "on-secondary-fixed-variant": "#474747",
-                    "tertiary": "#3b1500",
-                    "surface-tint": "#5755a7",
-                    "surface-bright": "#f9f9f9",
-                    "on-secondary-container": "#646464",
-                    "inverse-primary": "#c3c0ff",
-                    "error-container": "#ffdad6",
-                    "on-secondary": "#ffffff",
-                    "surface-container": "#eeeeee",
-                    "on-tertiary-fixed-variant": "#783200",
-                    "surface-dim": "#dadada",
-                    "primary": "#170f66",
-                    "tertiary-fixed-dim": "#ffb690",
-                    "on-tertiary": "#ffffff",
-                    "surface-container-low": "#f3f3f3",
-                    "on-surface-variant": "#474551",
-                    "primary-fixed": "#e2dfff",
-                    "secondary-container": "#e2e2e2",
-                    "primary-fixed-dim": "#c3c0ff",
-                    "on-secondary-fixed": "#1b1b1b",
-                    "tertiary-container": "#5d2500",
-                    "on-surface": "#1a1c1c",
-                    "outline-variant": "#c8c5d3",
-                    "surface-container-high": "#e8e8e8",
-                    "on-background": "#1a1c1c"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "fontFamily": {
-                    "headline": ["Noto Serif"],
-                    "body": ["Inter"],
-                    "label": ["Inter"]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .tonal-shift-via-blur {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(24px);
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #170F66 0%, #2E2A7B 100%);
-        }
-    </style>
-</head>
-<body class="bg-surface font-body text-on-surface overflow-x-hidden">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none">
-<div class="flex justify-between items-center px-8 py-4 max-w-8xl mx-auto">
-<div class="text-2xl font-headline font-black text-[#170F66] dark:text-white tracking-tighter">
-                TDL Construction
-            </div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="font-label text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">Home</a>
-<a class="font-label text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">Services</a>
-<a class="font-label text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">Projects</a>
-<a class="font-label text-sm font-medium tracking-wide uppercase text-slate-600 dark:text-slate-300 hover:text-[#170F66] dark:hover:text-white hover:scale-105 transition-transform duration-300" href="#">About</a>
-<a class="font-label text-sm font-medium tracking-wide uppercase text-[#FE771B] border-b-2 border-[#FE771B] pb-1 hover:scale-105 transition-transform duration-300" href="#">Contact</a>
-</div>
-<button class="bg-[#FE771B] text-white px-6 py-2.5 rounded-xl font-label text-sm font-bold uppercase tracking-wider hover:scale-105 transition-transform duration-300">
-                Get a Quote
-            </button>
-</div>
-</nav>
+{% block title %}Contact | TDL Construction{% endblock %}
+
+{% block content %}
 <main class="pt-24 lg:pt-32 pb-16 px-6 lg:px-12 max-w-7xl mx-auto">
 <!-- Hero Header -->
 <header class="mb-16 lg:mb-24">
@@ -151,7 +42,7 @@
 </div>
 <button class="w-full bg-primary text-white font-label font-bold uppercase tracking-widest py-5 rounded-xl hover:bg-on-tertiary-container transition-colors duration-300 flex items-center justify-center gap-3" type="submit">
                         Send Inquiry
-                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
 </button>
 </form>
 </section>
@@ -161,7 +52,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
 <div class="flex items-start gap-4">
 <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="material-symbols-outlined">location_on</span>
 </div>
 <div>
 <h3 class="font-headline text-lg font-bold mb-1">HQ Address</h3>
@@ -172,7 +63,7 @@
 </div>
 <div class="flex items-start gap-4">
 <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined" data-icon="call">call</span>
+<span class="material-symbols-outlined">call</span>
 </div>
 <div>
 <h3 class="font-headline text-lg font-bold mb-1">Phone &amp; Support</h3>
@@ -183,7 +74,7 @@
 </div>
 <div class="flex items-start gap-4">
 <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<span class="material-symbols-outlined">mail</span>
 </div>
 <div>
 <h3 class="font-headline text-lg font-bold mb-1">Direct Email</h3>
@@ -197,22 +88,22 @@
 <a class="block w-full bg-[#25D366] hover:bg-[#128C7E] text-white p-6 rounded-xl transition-all group overflow-hidden relative" href="#">
 <div class="relative z-10 flex items-center justify-between">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined scale-150" data-icon="chat">chat</span>
+<span class="material-symbols-outlined scale-150">chat</span>
 <div>
 <span class="block font-label text-xs uppercase font-bold tracking-widest opacity-80">Instant Response</span>
 <span class="block font-headline text-xl font-bold">Chat on WhatsApp</span>
 </div>
 </div>
-<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="chevron_right">chevron_right</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">chevron_right</span>
 </div>
 <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 </a>
 <!-- Map View -->
 <div class="rounded-xl overflow-hidden border border-outline-variant/20 shadow-md h-80 relative group">
-<img class="w-full h-full object-cover grayscale brightness-50 group-hover:scale-110 transition-transform duration-700" data-alt="abstract overhead map view of urban city grid with dark blue and gray tonal overlay matching brand identity" data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiPeyY4EZthaEnuI-GqRsDhNCEJVJ_qvpn27MyOGXeCUQe0OdNcd0r7xq2ZdSXRg2V2bdQF2Y-ID7YxaF_5lol12DtgjIo2-9FglRgBIKuC-ZwKcMtjoEDzzR55obIx9_nkajvN6fKmGLsucP9zjnX2QKvN2hMb4qMSwUFWuP78Bbdizk1QQEBhTznsDlVufiE6huxLpfQjr62kJYM5Yqehr9_FDlpnDdODpGJ5uARgSJyMuF73E5FpdNb0aoAPFmHWneJkdEZ"/>
+<img class="w-full h-full object-cover grayscale brightness-50 group-hover:scale-110 transition-transform duration-700" alt="abstract overhead map view of urban city grid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiPeyY4EZthaEnuI-GqRsDhNCEJVJ_qvpn27MyOGXeCUQe0OdNcd0r7xq2ZdSXRg2V2bdQF2Y-ID7YxaF_5lol12DtgjIo2-9FglRgBIKuC-ZwKcMtjoEDzzR55obIx9_nkajvN6fKmGLsucP9zjnX2QKvN2hMb4qMSwUFWuP78Bbdizk1QQEBhTznsDlVufiE6huxLpfQjr62kJYM5Yqehr9_FDlpnDdODpGJ5uARgSJyMuF73E5FpdNb0aoAPFmHWneJkdEZ"/>
 <div class="absolute inset-0 flex items-center justify-center">
 <div class="bg-primary text-white p-4 rounded-full shadow-2xl animate-bounce">
-<span class="material-symbols-outlined" data-icon="push_pin" data-weight="fill" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">push_pin</span>
 </div>
 </div>
 <div class="absolute bottom-4 left-4 bg-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest shadow-sm">
@@ -222,51 +113,4 @@
 </aside>
 </div>
 </main>
-<!-- Footer -->
-<footer class="w-full rounded-t-none border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16">
-<div class="col-span-1 md:col-span-1">
-<div class="text-xl font-headline font-bold text-slate-900 dark:text-white mb-4">TDL Construction</div>
-<p class="font-body text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                    Engineering excellence through precision and architectural integrity. Building the foundations of tomorrow since 1994.
-                </p>
-</div>
-<div>
-<h4 class="font-headline text-lg font-bold text-primary dark:text-indigo-300 mb-6">Quick Links</h4>
-<div class="flex flex-col space-y-3">
-<a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Privacy Policy</a>
-<a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Terms of Service</a>
-<a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Safety Standards</a>
-<a class="text-slate-500 hover:text-slate-900 dark:hover:text-white hover:underline transition-all" href="#">Careers</a>
-</div>
-</div>
-<div>
-<h4 class="font-headline text-lg font-bold text-primary dark:text-indigo-300 mb-6">Expertise</h4>
-<div class="flex flex-col space-y-3">
-<span class="text-slate-500">Commercial Builds</span>
-<span class="text-slate-500">Civil Engineering</span>
-<span class="text-slate-500">Urban Planning</span>
-<span class="text-slate-500">Foundation Specialist</span>
-</div>
-</div>
-<div>
-<h4 class="font-headline text-lg font-bold text-primary dark:text-indigo-300 mb-6">Social</h4>
-<div class="flex gap-4">
-<a class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm hover:scale-110 transition-transform" href="#">
-<span class="material-symbols-outlined text-slate-600" data-icon="alternate_email">alternate_email</span>
-</a>
-<a class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm hover:scale-110 transition-transform" href="#">
-<span class="material-symbols-outlined text-slate-600" data-icon="work">work</span>
-</a>
-<a class="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg shadow-sm hover:scale-110 transition-transform" href="#">
-<span class="material-symbols-outlined text-slate-600" data-icon="hub">hub</span>
-</a>
-</div>
-</div>
-</div>
-<div class="px-12 py-8 border-t border-slate-200/60 dark:border-slate-800/60 flex justify-between items-center">
-<span class="text-slate-500 text-xs uppercase tracking-widest font-label">© 2024 TDL Construction. Engineering Excellence.</span>
-<span class="text-slate-400 text-[10px] uppercase font-label">Site by Architectural Systems</span>
-</div>
-</footer>
-</body></html>
+{% endblock %}

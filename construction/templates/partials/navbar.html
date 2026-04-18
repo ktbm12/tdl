@@ -1,0 +1,40 @@
+<!-- ======================== NAVIGATION ======================== -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl shadow-sm">
+  <div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-8xl mx-auto">
+    <!-- Logo -->
+    <a href="{% url 'index' %}" class="text-2xl font-serif font-black text-[#170F66] tracking-tighter">
+      TDL Construction
+    </a>
+
+    <!-- Nav desktop -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a class="{% if request.resolver_match.url_name == 'index' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'index' %}">Accueil</a>
+      <a class="{% if request.resolver_match.url_name == 'services' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'services' %}">Services</a>
+      <a class="{% if request.resolver_match.url_name == 'projects' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'projects' %}">Projets</a>
+      <a class="{% if request.resolver_match.url_name == 'about' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'about' %}">À propos</a>
+      <a class="{% if request.resolver_match.url_name == 'contact' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'contact' %}">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <!-- CTA -->
+      <button onclick="openModal()" class="bg-on-tertiary-container text-white px-5 py-2.5 rounded-xl font-medium hover:bg-orange-500 transition-colors duration-200 shadow-lg text-sm">
+        Demander un devis
+      </button>
+      <!-- Hamburger mobile -->
+      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Ouvrir le menu" aria-expanded="false" onclick="toggleMenu()">
+        <span class="w-5 h-0.5 bg-slate-700 transition-all duration-300" id="hb1"></span>
+        <span class="w-5 h-0.5 bg-slate-700 transition-all duration-300" id="hb2"></span>
+        <span class="w-5 h-0.5 bg-slate-700 transition-all duration-300" id="hb3"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu mobile -->
+  <div id="mobile-menu" role="navigation" aria-label="Menu principal mobile">
+    <a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}" onclick="closeMenu()">Accueil</a>
+    <a href="{% url 'services' %}" class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}" onclick="closeMenu()">Services</a>
+    <a href="{% url 'projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}" onclick="closeMenu()">Projets</a>
+    <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}" onclick="closeMenu()">À propos</a>
+    <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}" onclick="closeMenu()">Contact</a>
+  </div>
+</nav>

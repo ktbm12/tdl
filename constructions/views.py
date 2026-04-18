@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import JsonResponse
-from .models import Service, Project, ContactMessage, QuoteRequest
+from .models import Service, Project, ContactMessage, QuoteRequest, Hero
 
 def index(request):
     services = Service.objects.all()[:3]
     featured_projects = Project.objects.filter(is_featured=True)[:6]
+    heroes = Hero.objects.filter(is_active=True)
     return render(request, 'home/home.html', {
         'services': services,
-        'projects': featured_projects
+        'projects': featured_projects,
+        'heroes': heroes
     })
 
 def contact(request):

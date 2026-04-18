@@ -2,7 +2,43 @@
 
 {% block content %}
 <!-- ======================== HERO ======================== -->
-<header id="accueil" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+<header id="accueil" class="relative min-h-screen flex items-center pt-16 overflow-hidden bg-slate-900">
+  {% for hero in heroes %}
+  <div class="hero-slide absolute inset-0 z-0 {% if forloop.first %}active{% endif %}" id="hero-{{ forloop.index0 }}">
+    <div class="absolute inset-0 z-0 slide-bg">
+      <img
+        alt="{{ hero.title }}"
+        class="w-full h-full object-cover transform scale-105"
+        loading="eager"
+        src="{{ hero.image.url }}"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/40 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-8 py-24 h-full flex items-center">
+      <div class="max-w-2xl space-y-8 slide-content">
+        <div class="inline-flex items-center space-x-2 bg-on-tertiary-container/10 border border-on-tertiary-container/30 px-4 py-1.5 rounded-full">
+          <span class="text-on-tertiary-container text-xs font-bold tracking-widest uppercase">{{ hero.subtitle }}</span>
+        </div>
+        <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] tracking-tight">
+          {{ hero.title|safe }}
+        </h1>
+        <p class="text-white/80 text-lg md:text-xl max-w-xl leading-relaxed">
+          {{ hero.description }}
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <button onclick="openModal()" class="bg-on-tertiary-container text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 transition-colors flex items-center gap-2">
+            {{ hero.cta_text }}
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+          <a href="{% url 'projects' %}" class="border-2 border-white/30 text-white hover:border-white px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm transition-all">
+            Voir nos réalisations
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <!-- Fallback Hero -->
   <div class="absolute inset-0 z-0">
     <img
       alt="Chantier de construction professionnel avec grues et structure en acier au lever du soleil"
@@ -34,6 +70,27 @@
       </div>
     </div>
   </div>
+  {% endfor %}
+
+  <!-- Hero Pagination & Controls -->
+  {% if heroes|length > 1 %}
+  <!-- Arrows -->
+  <div class="absolute inset-0 z-20 flex items-center justify-between px-6 pointer-events-none">
+    <button onclick="prevHeroSlide()" class="pointer-events-auto w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all backdrop-blur-md group" aria-label="Précédent">
+      <span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">chevron_left</span>
+    </button>
+    <button onclick="nextHeroSlide()" class="pointer-events-auto w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all backdrop-blur-md group" aria-label="Suivant">
+      <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+    </button>
+  </div>
+
+  <!-- Dots -->
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-4">
+    {% for hero in heroes %}
+    <button onclick="goToHeroSlide({{ forloop.index0 }})" class="hero-dot w-12 h-1 bg-white/30 rounded-full transition-all duration-300 {% if forloop.first %}bg-on-tertiary-container w-20{% endif %}" aria-label="Slide {{ forloop.index }}"></button>
+    {% endfor %}
+  </div>
+  {% endif %}
 </header>
 
 <!-- ======================== STATISTIQUES ======================== -->
@@ -211,19 +268,81 @@
 </section>
 {% endblock %}
 
+{% block extra_style %}
+  .hero-slide { opacity: 0; transition: opacity 1.2s ease-in-out; pointer-events: none; }
+  .hero-slide.active { opacity: 1; z-index: 1; pointer-events: auto; }
+  
+  .hero-slide.active .slide-bg img { animation: kenburns 20s infinite alternate; }
+  .hero-slide.active .slide-content { animation: slideIn 1s ease-out forwards; }
+
+  @keyframes kenburns {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.15); }
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+{% endblock %}
+
 {% block extra_script %}
+  /* ---- Hero Slider ---- */
+  let currentHeroSlide = 0;
+  let heroInterval;
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('.hero-dot');
+  
+  function startHeroInterval() {
+    if (heroInterval) clearInterval(heroInterval);
+    if (heroSlides.length > 1) {
+      heroInterval = setInterval(nextHeroSlide, 7000);
+    }
+  }
+
+  function goToHeroSlide(n) {
+    if (!heroSlides.length) return;
+    heroSlides[currentHeroSlide].classList.remove('active');
+    if (heroDots.length) {
+        heroDots[currentHeroSlide].classList.remove('bg-on-tertiary-container', 'w-20');
+        heroDots[currentHeroSlide].classList.add('bg-white/30', 'w-12');
+    }
+    
+    currentHeroSlide = n;
+    
+    heroSlides[currentHeroSlide].classList.add('active');
+    if (heroDots.length) {
+        heroDots[currentHeroSlide].classList.add('bg-on-tertiary-container', 'w-20');
+        heroDots[currentHeroSlide].classList.remove('bg-white/30', 'w-12');
+    }
+    startHeroInterval(); // Reset timer
+  }
+
+  function nextHeroSlide() {
+    goToHeroSlide((currentHeroSlide + 1) % heroSlides.length);
+  }
+
+  function prevHeroSlide() {
+    goToHeroSlide((currentHeroSlide - 1 + heroSlides.length) % heroSlides.length);
+  }
+
+  startHeroInterval();
+
   /* ---- Témoignages ---- */
   let currentSlide = 0;
   const slides = document.querySelectorAll('.testimonial-slide');
   const dots = document.querySelectorAll('.dot');
   function goToSlide(n) {
+    if (!slides.length) return;
     slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
+    if (dots.length) dots[currentSlide].classList.remove('active');
     currentSlide = n;
     slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+    if (dots.length) dots[currentSlide].classList.add('active');
   }
-  setInterval(function() {
-    goToSlide((currentSlide + 1) % slides.length);
-  }, 5000);
+  if (slides.length > 1) {
+    setInterval(function() {
+      goToSlide((currentSlide + 1) % slides.length);
+    }, 5000);
+  }
 {% endblock %}

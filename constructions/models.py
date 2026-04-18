@@ -95,3 +95,20 @@ class SiteSetting(models.Model):
         if not self.pk and SiteSetting.objects.exists():
             return # Only one instance allowed
         return super().save(*args, **kwargs)
+
+class Hero(models.Model):
+    subtitle = models.CharField(max_length=100, verbose_name="Sous-titre (Badge)", help_text="Ex: Expertise Industrielle")
+    title = models.CharField(max_length=200, verbose_name="Titre principal")
+    description = models.TextField(verbose_name="Description")
+    image = models.ImageField(upload_to='hero/', verbose_name="Image de fond")
+    cta_text = models.CharField(max_length=50, default="Demander un devis", verbose_name="Texte du bouton")
+    order = models.IntegerField(default=0, verbose_name="Ordre")
+    is_active = models.BooleanField(default=True, verbose_name="Actif")
+
+    class Meta:
+        verbose_name = "Bannière Hero"
+        verbose_name_plural = "Bannières Hero"
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title

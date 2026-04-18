@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Service, Project, ContactMessage, SiteSetting, QuoteRequest
+from .models import Service, Project, ContactMessage, SiteSetting, QuoteRequest, Hero
+
+@admin.register(Hero)
+class HeroAdmin(admin.ModelAdmin):
+    list_display = ('title', 'order', 'is_active')
+    list_editable = ('order', 'is_active')
+    search_fields = ('title', 'subtitle', 'description')
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):

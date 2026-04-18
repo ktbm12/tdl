@@ -237,16 +237,48 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
   });
-  function submitQuote() {
+  async function submitQuote() {
     const nom = document.getElementById('q-nom').value.trim();
     const email = document.getElementById('q-email').value.trim();
+    const tel = document.getElementById('q-tel').value.trim();
     const type = document.getElementById('q-type').value;
+    const budget = document.getElementById('q-budget').value;
+    const description = document.getElementById('q-desc').value.trim();
+
     if (!nom || !email || !type) {
       alert('Veuillez remplir les champs obligatoires (*).');
       return;
     }
-    document.getElementById('form-success').style.display = 'block';
-    setTimeout(closeModal, 2500);
+
+    const formData = new FormData();
+    formData.append('nom', nom);
+    formData.append('email', email);
+    formData.append('tel', tel);
+    formData.append('type', type);
+    formData.append('budget', budget);
+    formData.append('description', description);
+    formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+    try {
+      const response = await fetch('{% url "submit_quote" %}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        }
+      });
+      const data = await response.json();
+      if (data.status === 'success') {
+        document.getElementById('form-success').style.display = 'block';
+        document.getElementById('form-success').textContent = '✓ ' + data.message;
+        setTimeout(closeModal, 2500);
+      } else {
+        alert('Erreur: ' + data.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Une erreur est survenue lors de l\'envoi.');
+    }
   }
 
   {% block extra_script %}{% endblock %}

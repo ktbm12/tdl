@@ -29,7 +29,7 @@
 {% for service in services %}
 <div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border-b-4 border-transparent hover:border-on-tertiary-container">
 <div class="h-64 overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="{{ service.title }}" src="{{ service.image_url|default:'https://lh3.googleusercontent.com/aida-public/AB6AXuBAbkz5cPIqomECraAwNWMYYPQeM6oi-5B6bDmMwwgFkY917-OFQxVLrPawsAKiZmWr2mkQCp7qEdYDrIibi43xUHpB7ypndLYJ_80J6_TXTE9MiCamF72hL5Q5N-lJa2Yumizy4YULKXF15u6u-oB2UVpM_532H52KHTgh6AOIoNPCgfi_6IvceP2hHw2VnE5LXVEQgV7_YQh5SytqXgzf_NOk_QJ0_4kszXSKUU-yNTs__saeft32R7uW1T3UbksaH6SS_ZOw' }}"/>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="{{ service.title }}" src="{% if service.image %}{{ service.image.url }}{% else %}https://lh3.googleusercontent.com/aida-public/AB6AXuBAbkz5cPIqomECraAwNWMYYPQeM6oi-5B6bDmMwwgFkY917-OFQxVLrPawsAKiZmWr2mkQCp7qEdYDrIibi43xUHpB7ypndLYJ_80J6_TXTE9MiCamF72hL5Q5N-lJa2Yumizy4YULKXF15u6u-oB2UVpM_532H52KHTgh6AOIoNPCgfi_6IvceP2hHw2VnE5LXVEQgV7_YQh5SytqXgzf_NOk_QJ0_4kszXSKUU-yNTs__saeft32R7uW1T3UbksaH6SS_ZOw{% endif %}"/>
 </div>
 <div class="p-8 flex flex-col flex-grow">
 <div class="mb-6 flex items-center justify-between">

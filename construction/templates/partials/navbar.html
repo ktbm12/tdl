@@ -5,8 +5,16 @@
     <!-- Audacious Brand Logo -->
     <a href="{% url 'index' %}" class="group flex items-center gap-2">
       <div class="flex items-baseline">
-        <span class="text-3xl font-black text-[#FE771B] tracking-tight transition-transform group-hover:scale-105 duration-300">TDL</span>
-        <span class="ml-1 text-2xl font-light text-[#170F66] tracking-widest uppercase transition-all group-hover:ml-2 duration-300">Construction</span>
+        {% if site_settings.logo %}
+          <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.site_name }}" class="h-10 w-auto">
+        {% else %}
+          <span class="text-3xl font-black text-[#FE771B] tracking-tight transition-transform group-hover:scale-105 duration-300">
+            {{ site_settings.site_name|default:"TDL"|truncatechars:4 }}
+          </span>
+          <span class="ml-1 text-2xl font-light text-[#170F66] tracking-widest uppercase transition-all group-hover:ml-2 duration-300">
+            {{ site_settings.site_name|default:"Construction"|slice:"4:" }}
+          </span>
+        {% endif %}
       </div>
       <div class="h-8 w-1 bg-gradient-to-b from-[#FE771B] to-[#170F66] rounded-full hidden sm:block"></div>
     </a>
@@ -60,7 +68,7 @@
     <div class="px-8 py-10">
       <!-- Drawer Header -->
       <div class="flex justify-between items-center mb-16">
-        <span class="text-2xl font-black text-[#FE771B]">TDL</span>
+        <span class="text-2xl font-black text-[#FE771B]">{{ site_settings.site_name|default:"TDL" }}</span>
         <button onclick="closeMenu()" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
           <span class="material-symbols-outlined text-3xl">close</span>
         </button>

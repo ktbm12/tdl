@@ -67,7 +67,7 @@
 <div>
 <h3 class="font-headline text-lg font-bold mb-1">HQ Address</h3>
 <p class="font-body text-on-surface-variant leading-relaxed">
-                                482 Engineering Way<br/>Industrial District, NY 10012
+                              {{ site_settings.address|linebreaksbr|default:"482 Engineering Way<br/>Industrial District, NY 10012" }}
                             </p>
 </div>
 </div>
@@ -78,7 +78,7 @@
 <div>
 <h3 class="font-headline text-lg font-bold mb-1">Phone &amp; Support</h3>
 <p class="font-body text-on-surface-variant leading-relaxed">
-                                +1 (555) 092-4800<br/>Mon - Fri, 8am - 6pm
+                              <a href="tel:{{ site_settings.phone }}" class="hover:text-slate-900 transition-colors">{{ site_settings.phone|default:"+1 (555) 092-4800" }}</a><br/>Mon - Fri, 8am - 6pm
                             </p>
 </div>
 </div>
@@ -89,13 +89,13 @@
 <div>
 <h3 class="font-headline text-lg font-bold mb-1">Direct Email</h3>
 <p class="font-body text-on-surface-variant leading-relaxed">
-                                office@tdlconstruction.com<br/>bids@tdlconstruction.com
+                              <a href="mailto:{{ site_settings.email }}" class="hover:text-slate-900 transition-colors">{{ site_settings.email|default:"office@tdlconstruction.com" }}</a>
                             </p>
 </div>
 </div>
 </div>
 <!-- WhatsApp Button -->
-<a class="block w-full bg-[#25D366] hover:bg-[#128C7E] text-white p-6 rounded-xl transition-all group overflow-hidden relative" href="#">
+      <a class="block w-full bg-[#25D366] hover:bg-[#128C7E] text-white p-6 rounded-xl transition-all group overflow-hidden relative" href="https://wa.me/{{ site_settings.whatsapp|default:site_settings.phone|cut:' ' }}" target="_blank">
 <div class="relative z-10 flex items-center justify-between">
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined scale-150">chat</span>

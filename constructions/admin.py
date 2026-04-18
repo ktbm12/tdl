@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Project, ContactMessage
+from .models import Service, Project, ContactMessage, SiteSetting, QuoteRequest
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
@@ -24,3 +24,22 @@ class ContactMessageAdmin(admin.ModelAdmin):
 
     def has_add_permission(self, request):
         return False
+
+@admin.register(QuoteRequest)
+class QuoteRequestAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone', 'project_type', 'is_read', 'created_at')
+    list_filter = ('is_read', 'project_type', 'created_at')
+    search_fields = ('name', 'email', 'message', 'description')
+    readonly_fields = ('name', 'email', 'phone', 'project_type', 'budget', 'description', 'created_at')
+    list_editable = ('is_read',)
+
+    def has_add_permission(self, request):
+        return False
+
+@admin.register(SiteSetting)
+class SiteSettingAdmin(admin.ModelAdmin):
+    list_display = ('site_name', 'email', 'phone')
+    
+    def has_add_permission(self, request):
+        # Only one instance allowed
+        return not SiteSetting.objects.exists()

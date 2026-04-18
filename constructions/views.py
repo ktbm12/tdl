@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Service, Project, ContactMessage
+from django.http import JsonResponse
+from .models import Service, Project, ContactMessage, QuoteRequest
 
 def index(request):
     services = Service.objects.all()[:3]
@@ -31,6 +32,28 @@ def contact(request):
             
     return render(request, 'contact.html')
 
+def submit_quote(request):
+    if request.method == 'POST':
+        name = request.POST.get('nom')
+        email = request.POST.get('email')
+        phone = request.POST.get('tel')
+        project_type = request.POST.get('type')
+        budget = request.POST.get('budget')
+        description = request.POST.get('description')
+        
+        if name and email and project_type:
+            QuoteRequest.objects.create(
+                name=name,
+                email=email,
+                phone=phone,
+                project_type=project_type,
+                budget=budget,
+                description=description
+            )
+            return JsonResponse({'status': 'success', 'message': 'Demande envoyée !'})
+        return JsonResponse({'status': 'error', 'message': 'Champs manquants.'}, status=400)
+    return JsonResponse({'status': 'error', 'message': 'Méthode non autorisée.'}, status=405)
+
 def about(request):
     return render(request, 'about.html')
 
@@ -40,5 +63,4 @@ def services(request):
 
 def projects(request):
     all_projects = Project.objects.all()
-    # Categorization could be done in template or here
     return render(request, 'project.html', {'projects': all_projects})

@@ -1,40 +1,108 @@
 <!-- ======================== NAVIGATION ======================== -->
-<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl shadow-sm">
-  <div class="flex justify-between items-center px-6 md:px-8 py-4 max-w-8xl mx-auto">
-    <!-- Logo -->
-    <a href="{% url 'index' %}" class="text-2xl font-serif font-black text-[#170F66] tracking-tighter">
-      TDL Construction
+<nav class="fixed top-0 w-full z-50 bg-white/80 border-b border-outline-variant/10 backdrop-blur-2xl transition-all duration-300">
+  <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-8xl mx-auto">
+    
+    <!-- Audacious Brand Logo -->
+    <a href="{% url 'index' %}" class="group flex items-center gap-2">
+      <div class="flex items-baseline">
+        <span class="text-3xl font-black text-[#FE771B] tracking-tight transition-transform group-hover:scale-105 duration-300">TDL</span>
+        <span class="ml-1 text-2xl font-light text-[#170F66] tracking-widest uppercase transition-all group-hover:ml-2 duration-300">Construction</span>
+      </div>
+      <div class="h-8 w-1 bg-gradient-to-b from-[#FE771B] to-[#170F66] rounded-full hidden sm:block"></div>
     </a>
 
-    <!-- Nav desktop -->
-    <div class="hidden md:flex items-center space-x-8">
-      <a class="{% if request.resolver_match.url_name == 'index' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'index' %}">Accueil</a>
-      <a class="{% if request.resolver_match.url_name == 'services' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'services' %}">Services</a>
-      <a class="{% if request.resolver_match.url_name == 'projects' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'projects' %}">Projets</a>
-      <a class="{% if request.resolver_match.url_name == 'about' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'about' %}">À propos</a>
-      <a class="{% if request.resolver_match.url_name == 'contact' %}text-[#FE771B] border-b-2 border-[#FE771B] pb-1{% else %}text-slate-600 hover:text-[#170F66]{% endif %} transition-colors duration-200 font-sans text-sm font-medium tracking-wide uppercase" href="{% url 'contact' %}">Contact</a>
+    <!-- Nav Desktop -->
+    <div class="hidden md:flex items-center space-x-10">
+      {% with current_url=request.resolver_match.url_name %}
+      <a class="group relative px-2 py-1 text-sm font-semibold tracking-widest uppercase transition-colors {% if current_url == 'index' %}text-[#FE771B]{% else %}text-slate-500 hover:text-[#170F66]{% endif %}" href="{% url 'index' %}">
+        Accueil
+        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FE771B] transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 {% if current_url == 'index' %}scale-x-100{% endif %}"></span>
+      </a>
+      <a class="group relative px-2 py-1 text-sm font-semibold tracking-widest uppercase transition-colors {% if current_url == 'services' %}text-[#FE771B]{% else %}text-slate-500 hover:text-[#170F66]{% endif %}" href="{% url 'services' %}">
+        Services
+        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FE771B] transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 {% if current_url == 'services' %}scale-x-100{% endif %}"></span>
+      </a>
+      <a class="group relative px-2 py-1 text-sm font-semibold tracking-widest uppercase transition-colors {% if current_url == 'projects' %}text-[#FE771B]{% else %}text-slate-500 hover:text-[#170F66]{% endif %}" href="{% url 'projects' %}">
+        Projets
+        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FE771B] transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 {% if current_url == 'projects' %}scale-x-100{% endif %}"></span>
+      </a>
+      <a class="group relative px-2 py-1 text-sm font-semibold tracking-widest uppercase transition-colors {% if current_url == 'about' %}text-[#FE771B]{% else %}text-slate-500 hover:text-[#170F66]{% endif %}" href="{% url 'about' %}">
+        À propos
+        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FE771B] transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 {% if current_url == 'about' %}scale-x-100{% endif %}"></span>
+      </a>
+      <a class="group relative px-2 py-1 text-sm font-semibold tracking-widest uppercase transition-colors {% if current_url == 'contact' %}text-[#FE771B]{% else %}text-slate-500 hover:text-[#170F66]{% endif %}" href="{% url 'contact' %}">
+        Contact
+        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FE771B] transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 {% if current_url == 'contact' %}scale-x-100{% endif %}"></span>
+      </a>
+      {% endwith %}
     </div>
 
-    <div class="flex items-center gap-3">
-      <!-- CTA -->
-      <button onclick="openModal()" class="bg-on-tertiary-container text-white px-5 py-2.5 rounded-xl font-medium hover:bg-orange-500 transition-colors duration-200 shadow-lg text-sm">
-        Demander un devis
+    <!-- Right Side (CTA + Hamburger) -->
+    <div class="flex items-center gap-5">
+      <button onclick="openModal()" class="hidden sm:block px-8 py-3 bg-[#170F66] text-white text-xs font-bold tracking-[0.2em] uppercase rounded-full hover:bg-[#FE771B] hover:shadow-2xl hover:scale-105 transition-all duration-300">
+        Devis Express
       </button>
-      <!-- Hamburger mobile -->
-      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Ouvrir le menu" aria-expanded="false" onclick="toggleMenu()">
-        <span class="w-5 h-0.5 bg-slate-700 transition-all duration-300" id="hb1"></span>
-        <span class="w-5 h-0.5 bg-slate-700 transition-all duration-300" id="hb2"></span>
-        <span class="w-5 h-0.5 bg-slate-700 transition-all duration-300" id="hb3"></span>
+      
+      <!-- Hamburger Menu Button -->
+      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-3 hover:bg-slate-100 rounded-xl transition-colors" onclick="toggleMenu()">
+        <span class="w-6 h-0.5 bg-[#170F66] transition-all duration-300" id="hb1"></span>
+        <span class="w-4 h-0.5 bg-[#170F66] transition-all duration-300" id="hb2"></span>
+        <span class="w-6 h-0.5 bg-[#170F66] transition-all duration-300" id="hb3"></span>
       </button>
     </div>
   </div>
 
-  <!-- Menu mobile -->
-  <div id="mobile-menu" role="navigation" aria-label="Menu principal mobile">
-    <a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}" onclick="closeMenu()">Accueil</a>
-    <a href="{% url 'services' %}" class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}" onclick="closeMenu()">Services</a>
-    <a href="{% url 'projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}" onclick="closeMenu()">Projets</a>
-    <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}" onclick="closeMenu()">À propos</a>
-    <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}" onclick="closeMenu()">Contact</a>
+  <!-- Mobile Drawer Backdrop -->
+  <div id="drawer-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-500 z-[60]" onclick="closeMenu()"></div>
+
+  <!-- Mobile Side Drawer (Left) -->
+  <div id="mobile-menu" class="fixed top-0 left-0 w-[85%] max-w-[400px] h-screen bg-white z-[70] shadow-2xl transition-transform duration-500 -translate-x-full overflow-y-auto">
+    <div class="px-8 py-10">
+      <!-- Drawer Header -->
+      <div class="flex justify-between items-center mb-16">
+        <span class="text-2xl font-black text-[#FE771B]">TDL</span>
+        <button onclick="closeMenu()" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
+          <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+      </div>
+
+      <!-- Drawer Links -->
+      <nav class="flex flex-col gap-8">
+        {% with current_url=request.resolver_match.url_name %}
+        <a href="{% url 'index' %}" onclick="closeMenu()" class="flex items-center justify-between text-2xl font-headline font-bold {% if current_url == 'index' %}text-[#FE771B]{% else %}text-[#170F66]{% endif %} group">
+          Accueil
+          <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0">arrow_forward</span>
+        </a>
+        <a href="{% url 'services' %}" onclick="closeMenu()" class="flex items-center justify-between text-2xl font-headline font-bold {% if current_url == 'services' %}text-[#FE771B]{% else %}text-[#170F66]{% endif %} group">
+          Services
+          <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0">arrow_forward</span>
+        </a>
+        <a href="{% url 'projects' %}" onclick="closeMenu()" class="flex items-center justify-between text-2xl font-headline font-bold {% if current_url == 'projects' %}text-[#FE771B]{% else %}text-[#170F66]{% endif %} group">
+          Projets
+          <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0">arrow_forward</span>
+        </a>
+        <a href="{% url 'about' %}" onclick="closeMenu()" class="flex items-center justify-between text-2xl font-headline font-bold {% if current_url == 'about' %}text-[#FE771B]{% else %}text-[#170F66]{% endif %} group">
+          À propos
+          <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0">arrow_forward</span>
+        </a>
+        <a href="{% url 'contact' %}" onclick="closeMenu()" class="flex items-center justify-between text-2xl font-headline font-bold {% if current_url == 'contact' %}text-[#FE771B]{% else %}text-[#170F66]{% endif %} group">
+          Contact
+          <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0">arrow_forward</span>
+        </a>
+        {% endwith %}
+      </nav>
+
+      <!-- Drawer Footer -->
+      <div class="mt-24 pt-10 border-t border-slate-100">
+        <button onclick="openModal(); closeMenu();" class="w-full py-5 bg-[#FE771B] text-white font-bold rounded-2xl shadow-xl">
+          Demander un devis
+        </button>
+        <div class="mt-10 flex gap-6 justify-center">
+            <span class="material-symbols-outlined text-slate-400">language</span>
+            <span class="material-symbols-outlined text-slate-400">share</span>
+            <span class="material-symbols-outlined text-slate-400">apartment</span>
+        </div>
+      </div>
+    </div>
   </div>
 </nav>

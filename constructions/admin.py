@@ -1,3 +1,26 @@
 from django.contrib import admin
+from .models import Service, Project, ContactMessage
 
-# Register your models here.
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ('title', 'reference', 'order')
+    list_editable = ('order',)
+    search_fields = ('title', 'reference')
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'location', 'is_featured', 'created_at')
+    list_filter = ('category', 'is_featured')
+    search_fields = ('title', 'location')
+    list_editable = ('is_featured',)
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'project_type', 'is_read', 'created_at')
+    list_filter = ('is_read', 'project_type', 'created_at')
+    search_fields = ('name', 'email', 'message')
+    readonly_fields = ('name', 'email', 'project_type', 'message', 'created_at')
+    list_editable = ('is_read',)
+
+    def has_add_permission(self, request):
+        return False

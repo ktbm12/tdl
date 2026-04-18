@@ -1,3 +1,54 @@
 from django.db import models
 
-# Create your models here.
+class Service(models.Model):
+    title = models.CharField(max_length=100, verbose_name="Titre")
+    description = models.TextField(verbose_name="Description")
+    icon = models.CharField(max_length=50, verbose_name="Icône (Material Symbol)", help_text="Ex: apartment, engineering, foundation")
+    image_url = models.URLField(max_length=500, verbose_name="URL de l'image", blank=True)
+    reference = models.CharField(max_length=20, verbose_name="Référence", help_text="Ex: TDL-CB")
+    order = models.IntegerField(default=0, verbose_name="Ordre d'affichage")
+
+    class Meta:
+        verbose_name = "Service"
+        verbose_name_plural = "Services"
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title
+
+class Project(models.Model):
+    CATEGORY_CHOICES = [
+        ('houses', 'Maisons'),
+        ('infrastructure', 'Infrastructure'),
+        ('renovation', 'Rénovation'),
+    ]
+    title = models.CharField(max_length=200, verbose_name="Titre du projet")
+    location = models.CharField(max_length=200, verbose_name="Localisation")
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, verbose_name="Catégorie")
+    image_url = models.URLField(max_length=500, verbose_name="URL de l'image")
+    is_featured = models.BooleanField(default=False, verbose_name="Mettre en avant")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Projet"
+        verbose_name_plural = "Projets"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.title
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Nom")
+    email = models.EmailField(verbose_name="Email")
+    project_type = models.CharField(max_length=100, verbose_name="Type de projet")
+    message = models.TextField(verbose_name="Message")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date d'envoi")
+    is_read = models.BooleanField(default=False, verbose_name="Lu")
+
+    class Meta:
+        verbose_name = "Message de contact"
+        verbose_name_plural = "Messages de contact"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Message de {self.name} - {self.created_at.strftime('%Y-%m-%d %H:%M')}"

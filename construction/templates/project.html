@@ -26,72 +26,22 @@
 <!-- Projects Grid (Bento/Asymmetric Style) -->
 <section class="max-w-7xl mx-auto px-8">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-<!-- Project 1: Large Feature -->
-<div class="md:col-span-8 group relative overflow-hidden rounded-md project-card aspect-[16/9]">
-<img alt="Modern Office Building" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ7sac9U3DByndNI5XkD2eyIs5ffqd-MiAmY3leM65Nl8I__vCwLGTYCbjzpauMmnhgHLJ4kWTrN9ZUYj12n2Tb6l1DR6sLPP6SXiEwu2ERszxh1bMik4B7R9rzMFFMFnvFsmdJFkoSWs2pcAprLmaY5xEY_C-D1hY-gYG6z-yW1dJ3KH40ykiHlQRRiVgPb5ReXYGg19EWLpHckq_-NATBb5lSdBebxxDmT4OfUUCHGeLvCF13SQ7liHE4Gwyah3Y2YGaU-Le"/>
-<div class="overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-12 backdrop-blur-sm">
-<span class="text-on-tertiary-container font-label uppercase tracking-widest text-xs mb-2">Infrastructure</span>
-<h3 class="text-white font-headline text-3xl font-bold">Le Monolithe d'Argent</h3>
+{% for project in projects %}
+<div class="{% if forloop.counter|divisibleby:3 %}md:col-span-12{% elif forloop.counter|divisibleby:2 %}md:col-span-4{% else %}md:col-span-8{% endif %} group relative overflow-hidden rounded-md project-card aspect-video md:aspect-auto h-[400px]">
+<img alt="{{ project.title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="{{ project.image_url }}"/>
+<div class="overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 md:p-12 backdrop-blur-sm">
+<span class="text-on-tertiary-container font-label uppercase tracking-widest text-xs mb-2">{{ project.get_category_display }}</span>
+<h3 class="text-white font-headline text-2xl md:text-3xl font-bold">{{ project.title }}</h3>
 <p class="text-white/80 font-body mt-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">location_on</span> Paris, La Défense
-                        </p>
+<span class="material-symbols-outlined text-sm">location_on</span> {{ project.location }}
+</p>
 </div>
 </div>
-<!-- Project 2: Vertical Small -->
-<div class="md:col-span-4 group relative overflow-hidden rounded-md project-card aspect-[4/5]">
-<img alt="Luxury Villa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAixJJq5HaAh1oCbjCWrRyT53JIQbbvYjSLiL4h34vWIs7JpH_0CSOfQOtJQhAZx3kS2GMq6IddHdfcgQ70YnVAcT-ww5fQgDH8pIKT01zqRpo8mSQawA5C1RaVEyra-XuLdj4eFBCtrehA3dadERW68sFgx9AfACUdxLG00yW3lGAdafzrrr8q6FJ85ngtTpFoZopoOJrmj8jiWW5tdq_yiurE23NRXOWg0rGy-rh63WxJ00gDZDYuwc5b1BKFeDZ_uePARCUs"/>
-<div class="overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 backdrop-blur-sm">
-<span class="text-on-tertiary-container font-label uppercase tracking-widest text-xs mb-2">Houses</span>
-<h3 class="text-white font-headline text-2xl font-bold">Villa Horizon</h3>
-<p class="text-white/80 font-body mt-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">location_on</span> Nice, Côte d'Azur
-                        </p>
+{% empty %}
+<div class="md:col-span-12 text-center py-24 text-on-surface-variant italic">
+    Aucun projet disponible dans le portfolio pour le moment.
 </div>
-</div>
-<!-- Project 3: Square -->
-<div class="md:col-span-4 group relative overflow-hidden rounded-md project-card aspect-square">
-<img alt="Office Renovation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmLFWYY214-SXxfbTjgOhY8cg6eZeNrP3Z7fuL16bOY4icOOEic_26M4KTyaEAIO8r26rIDBIwQApbYjoof4YNLeO8YXHKBSr3ls6gN0zqrNLRRonS0QGmTjYu4gi59V8QS-sCYKl8ua5M65A8A1NPhhT_XmECrNth9pxBo6wC8ltmfbv_RekxIod9PYQDWybhbNsTr-x-x1BuLh_n9F_mgcDS0lvP3KGFHBLZAQuKai_brTl9QhOPdoLkZqrtuZqSsQhDULZT"/>
-<div class="overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 backdrop-blur-sm">
-<span class="text-on-tertiary-container font-label uppercase tracking-widest text-xs mb-2">Renovation</span>
-<h3 class="text-white font-headline text-2xl font-bold">L'Atelier Industriel</h3>
-<p class="text-white/80 font-body mt-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">location_on</span> Lyon, Confluence
-                        </p>
-</div>
-</div>
-<!-- Project 4: Wide -->
-<div class="md:col-span-8 group relative overflow-hidden rounded-md project-card aspect-[16/9]">
-<img alt="Bridge Construction" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqMUH6J6jf9LiaQWEwN7BiFgZ_a6u4c3IW5Kxl3r1gFMGwauCwA5GQQMQIpnugBNe8I0zwq_TAdL7l9eed72visUhe3Vz6X6ae7cvJcEeWym7uZQI7tMPFljFk5YKPASTz4SquwTqOt4mL4bSit4I4cA3PlEsNweHkmMbfVNLuF2gYfKQ1xNyCWkmAPB_F01GdrakdM6PZ7LJ9QwPOd3MtOkjXoI1qW873bJBRFD6Y6WbRkLX9h_w3lzMUac4cxWqhh461KAkP"/>
-<div class="overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-12 backdrop-blur-sm">
-<span class="text-on-tertiary-container font-label uppercase tracking-widest text-xs mb-2">Infrastructure</span>
-<h3 class="text-white font-headline text-3xl font-bold">Viaduc de l'Avenir</h3>
-<p class="text-white/80 font-body mt-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">location_on</span> Bordeaux, Garonne
-                        </p>
-</div>
-</div>
-<!-- Project 5: Medium Feature -->
-<div class="md:col-span-6 group relative overflow-hidden rounded-md project-card aspect-video">
-<img alt="Contemporary House" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk9jYJl2cg1uolc8jSV-umQS1qH_EKUijNHZSGeRkyDZmKNA5OIGONE0GnDBBp88xngcBLuY5AZEQeV_3YL31BY6yP6iNhCFXs5_mqbrV2vi2pY0gAT6tFhxZcIRmMbOuBolbybK6qIIYCyd9G06Xw6BRPm7ywV3BSocgrrhhdZJjhC8hA5dRnHDD6dcs7u1jY9dlf6enlKEbz8qRNu1Jecx09pcMiU7NTIlia2AHr4BVKLQKCU7I_TkE4jEy5yndHStiO0OC9"/>
-<div class="overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-10 backdrop-blur-sm">
-<span class="text-on-tertiary-container font-label uppercase tracking-widest text-xs mb-2">Houses</span>
-<h3 class="text-white font-headline text-2xl font-bold">Résidence Lumière</h3>
-<p class="text-white/80 font-body mt-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">location_on</span> Annecy, Alpes
-                        </p>
-</div>
-</div>
-<!-- Project 6: Medium Feature -->
-<div class="md:col-span-6 group relative overflow-hidden rounded-md project-card aspect-video">
-<img alt="Museum Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAljNhrN3fByEaxmZ6DxytrKPv8CriyGHJHTxYDjeYP1Q2j2OwoPVIH0BWc1U2Ad3Rc0s3_O3le2f05l3zhZIS59vvVGAgfyUxS5DZ5C-gYcbOcLDCmyWx6rQHbt3td6iiuZDu0er5UdnIFHttdnS4G79o9NwVXLZbaYoOgR-EW5rK9VrZIG8C6bWtrDTMGpOQoX1c-KWsujo6CVnh_1o1VI05XgLNAdQGzKeReHH93RuTiAO4rsaF7N2vHFBGYaqjND08EloML"/>
-<div class="overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-10 backdrop-blur-sm">
-<span class="text-on-tertiary-container font-label uppercase tracking-widest text-xs mb-2">Infrastructure</span>
-<h3 class="text-white font-headline text-2xl font-bold">Centre Culturel Alpha</h3>
-<p class="text-white/80 font-body mt-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">location_on</span> Strasbourg
-                        </p>
-</div>
-</div>
+{% endfor %}
 </div>
 </section>
 <!-- CTA Section -->

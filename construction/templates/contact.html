@@ -16,29 +16,39 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
 <!-- Left Side: Contact Form -->
 <section class="bg-surface-container-lowest p-8 lg:p-12 rounded-xl shadow-sm border border-outline-variant/15">
-<form class="space-y-8">
+{% if messages %}
+<div class="mb-8 space-y-4">
+    {% for message in messages %}
+    <div class="p-4 rounded-lg {% if message.tags == 'success' %}bg-green-100 text-green-800 border border-green-200{% else %}bg-red-100 text-red-800 border border-red-200{% endif %}">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+<form method="POST" class="space-y-8">
+{% csrf_token %}
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <div class="relative">
 <label class="font-label text-xs font-bold uppercase tracking-widest text-outline mb-2 block">Name</label>
-<input class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-on-tertiary-container focus:ring-0 px-4 py-3 transition-all rounded-lg placeholder:text-outline-variant" placeholder="John Doe" type="text"/>
+<input name="name" required class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-on-tertiary-container focus:ring-0 px-4 py-3 transition-all rounded-lg placeholder:text-outline-variant" placeholder="John Doe" type="text"/>
 </div>
 <div class="relative">
 <label class="font-label text-xs font-bold uppercase tracking-widest text-outline mb-2 block">Email</label>
-<input class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-on-tertiary-container focus:ring-0 px-4 py-3 transition-all rounded-lg placeholder:text-outline-variant" placeholder="john@company.com" type="email"/>
+<input name="email" required class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-on-tertiary-container focus:ring-0 px-4 py-3 transition-all rounded-lg placeholder:text-outline-variant" placeholder="john@company.com" type="email"/>
 </div>
 </div>
 <div class="relative">
 <label class="font-label text-xs font-bold uppercase tracking-widest text-outline mb-2 block">Project Type</label>
-<select class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-on-tertiary-container focus:ring-0 px-4 py-3 transition-all rounded-lg text-on-surface appearance-none">
-<option>Residential Construction</option>
-<option>Commercial Development</option>
-<option>Civil Infrastructure</option>
-<option>Structural Renovation</option>
+<select name="project_type" class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-on-tertiary-container focus:ring-0 px-4 py-3 transition-all rounded-lg text-on-surface appearance-none">
+<option value="Residential">Residential Construction</option>
+<option value="Commercial">Commercial Development</option>
+<option value="Civil">Civil Infrastructure</option>
+<option value="Renovation">Structural Renovation</option>
 </select>
 </div>
 <div class="relative">
 <label class="font-label text-xs font-bold uppercase tracking-widest text-outline mb-2 block">Message</label>
-<textarea class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-on-tertiary-container focus:ring-0 px-4 py-3 transition-all rounded-lg placeholder:text-outline-variant resize-none" placeholder="Tell us about your project requirements..." rows="5"></textarea>
+<textarea name="message" required class="w-full bg-surface-container-low border-b-2 border-transparent focus:border-on-tertiary-container focus:ring-0 px-4 py-3 transition-all rounded-lg placeholder:text-outline-variant resize-none" placeholder="Tell us about your project requirements..." rows="5"></textarea>
 </div>
 <button class="w-full bg-primary text-white font-label font-bold uppercase tracking-widest py-5 rounded-xl hover:bg-on-tertiary-container transition-colors duration-300 flex items-center justify-center gap-3" type="submit">
                         Send Inquiry

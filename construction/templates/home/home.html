@@ -70,39 +70,22 @@
       </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Construction de bâtiments -->
+      {% for service in services %}
       <div class="group p-10 bg-surface-container-lowest rounded-xl border border-transparent hover:border-on-tertiary-container/20 transition-all duration-500 shadow-sm hover:shadow-xl">
         <div class="w-16 h-16 rounded-xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-on-tertiary-container/10 transition-colors">
-          <span class="material-symbols-outlined text-primary text-4xl group-hover:text-on-tertiary-container" style="font-variation-settings: 'FILL' 0;">apartment</span>
+          <span class="material-symbols-outlined text-primary text-4xl group-hover:text-on-tertiary-container" style="font-variation-settings: 'FILL' 0;">{{ service.icon }}</span>
         </div>
-        <h3 class="font-headline text-2xl text-primary mb-4">Construction de bâtiments</h3>
-        <p class="text-on-surface-variant leading-relaxed mb-8">Solutions résidentielles et commerciales haut de gamme alliant esthétique et structure.</p>
+        <h3 class="font-headline text-2xl text-primary mb-4">{{ service.title }}</h3>
+        <p class="text-on-surface-variant leading-relaxed mb-8">{{ service.description }}</p>
         <a href="{% url 'services' %}" class="service-link text-on-tertiary-container font-bold text-sm tracking-widest uppercase">
           En savoir plus <span class="material-symbols-outlined text-sm">arrow_forward</span>
         </a>
       </div>
-      <!-- Travaux publics -->
-      <div class="group p-10 bg-surface-container-lowest rounded-xl border border-transparent hover:border-on-tertiary-container/20 transition-all duration-500 shadow-sm hover:shadow-xl">
-        <div class="w-16 h-16 rounded-xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-on-tertiary-container/10 transition-colors">
-          <span class="material-symbols-outlined text-primary text-4xl group-hover:text-on-tertiary-container" style="font-variation-settings: 'FILL' 0;">engineering</span>
-        </div>
-        <h3 class="font-headline text-2xl text-primary mb-4">Travaux publics</h3>
-        <p class="text-on-surface-variant leading-relaxed mb-8">Infrastructures routières, ponts et aménagements urbains pour les collectivités.</p>
-        <a href="{% url 'services' %}" class="service-link text-on-tertiary-container font-bold text-sm tracking-widest uppercase">
-          En savoir plus <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>
+      {% empty %}
+      <div class="col-span-3 text-center py-12 text-on-surface-variant italic">
+        Aucun service disponible pour le moment.
       </div>
-      <!-- Rénovation -->
-      <div class="group p-10 bg-surface-container-lowest rounded-xl border border-transparent hover:border-on-tertiary-container/20 transition-all duration-500 shadow-sm hover:shadow-xl">
-        <div class="w-16 h-16 rounded-xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-on-tertiary-container/10 transition-colors">
-          <span class="material-symbols-outlined text-primary text-4xl group-hover:text-on-tertiary-container" style="font-variation-settings: 'FILL' 0;">architecture</span>
-        </div>
-        <h3 class="font-headline text-2xl text-primary mb-4">Rénovation</h3>
-        <p class="text-on-surface-variant leading-relaxed mb-8">Modernisation et réhabilitation de structures existantes avec optimisation énergétique.</p>
-        <a href="{% url 'services' %}" class="service-link text-on-tertiary-container font-bold text-sm tracking-widest uppercase">
-          En savoir plus <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -114,49 +97,26 @@
       <span class="text-on-tertiary-container font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Portfolio</span>
       <h2 class="font-headline text-4xl md:text-5xl text-primary">Réalisations Marquantes</h2>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <!-- Projet 1 -->
-      <div class="group relative h-[500px] overflow-hidden rounded-xl bg-slate-900">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {% for project in projects %}
+      <div class="group relative h-[500px] overflow-hidden rounded-xl bg-slate-900 {% if forloop.counter == 2 %}mt-0 md:mt-12{% endif %}">
         <img
-          alt="Tour de bureaux en verre moderne reflétant le ciel bleu au crépuscule, lignes architecturales épurées"
+          alt="{{ project.title }}"
           class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
           loading="lazy"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJurtkFYwuiSKsjFN6TVmDrN9xG8y0wb6GOsnehI_VEXI2NWBcOLL0Rhx1UXKC3_8k29G46tFSBXxcO2gl6SBb-Br0STopNVoHew7EAb_v_3TQe4jNNyqWsCpXjRyTPPkgYPECb7B9HKYjjrbm615j7Oj3qxautGNNEIJuDlPHbuqSaxQ9B60U21mYN6GsWAFP4N2IQqh-fHCIx_auA8-EQhvxffFSIbbP4ITrl6FturWVzk2vU6ZHQqsN3cBE-cdaF8ITLht3"
+          src="{{ project.image_url }}"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-10">
-          <span class="text-on-tertiary-container font-bold text-xs uppercase tracking-widest mb-2">Tertiaire</span>
-          <h4 class="font-headline text-3xl text-white mb-2">Tour Horizon Plaza</h4>
-          <p class="text-white/70 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">Un défi architectural de 45 étages en structure mixte acier-béton.</p>
+          <span class="text-on-tertiary-container font-bold text-xs uppercase tracking-widest mb-2">{{ project.get_category_display }}</span>
+          <h4 class="font-headline text-3xl text-white mb-2">{{ project.title }}</h4>
+          <p class="text-white/70 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">{{ project.location }}</p>
         </div>
       </div>
-      <!-- Projet 2 -->
-      <div class="group relative h-[500px] overflow-hidden rounded-xl bg-slate-900 mt-0 md:mt-12">
-        <img
-          alt="Intérieur d'une grande arena sportive moderne avec structure de plafond géométrique et éclairage naturel"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
-          loading="lazy"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_SBxtKsOGvkmd0882f2JqQMn7Jk983i_67LjsCc1wF4iw064C_ZhX_7kwo6M6QiolhfWPugpKaUHFUj-W6E5Zfx62DmMSly69P3KEKui7j5JiDm8iRSjyJe-9Rzg63c5gLAuh4Y-PDpSp4qDHE_B5hcgwo48RIoMQQX1EfV_s9MdUyyaLrW4__D0AITG5kFU-iTRhY6oTeplIE5tFaZKgWbN65mr-O43Qgc1y-t76nwDrIo4Z0ZV-TdOXAtTmB7VS1Mg65Shj"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-10">
-          <span class="text-on-tertiary-container font-bold text-xs uppercase tracking-widest mb-2">Public</span>
-          <h4 class="font-headline text-3xl text-white mb-2">Complexe Sportif Olympique</h4>
-          <p class="text-white/70 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">Innovation structurelle pour une portée libre de 120 mètres.</p>
-        </div>
+      {% empty %}
+      <div class="col-span-3 text-center py-12 text-on-surface-variant italic">
+        Aucun projet mis en avant pour le moment.
       </div>
-      <!-- Projet 3 -->
-      <div class="group relative h-[500px] overflow-hidden rounded-xl bg-slate-900">
-        <img
-          alt="Villa de luxe minimaliste avec murs en béton brut et grandes baies vitrées entourée d'une forêt de pins"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
-          loading="lazy"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzQljKbhmOxlORXRGt5N7PKn_7r3ugpW1LumCe3OdLUuKE1WlNxk-Hjcc0Jnn9Cr6Q78U87gKTcUMhQI53nt8_1i1ruhZlW62Gqp8z29hifOrlXhvkqYsi7bhagJbb6gP8Lt3xyWhwOpsem98uEgxWLZKRfhcCDRB8witMRUU7zwO1Znc1iNRAhjqowRBp9mO1iCiwnz16cJn2W1s4_DU8pGLVh0RxnsUsuM0ROFkVTZH_wcnzFl63XfLumqKBCFCGc7h76avR"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-10">
-          <span class="text-on-tertiary-container font-bold text-xs uppercase tracking-widest mb-2">Résidentiel</span>
-          <h4 class="font-headline text-3xl text-white mb-2">Villa Monolithe</h4>
-          <p class="text-white/70 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">Béton brut et domotique intégrée pour une résidence d'exception.</p>
-        </div>
-      </div>
+      {% endfor %}
     </div>
     <div class="text-center mt-12">
       <a href="{% url 'projects' %}" class="inline-flex items-center gap-2 text-primary font-bold hover:text-on-tertiary-container transition-colors">

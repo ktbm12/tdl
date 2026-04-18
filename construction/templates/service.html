@@ -26,72 +26,31 @@
 <section class="py-24 bg-surface">
 <div class="max-w-7xl mx-auto px-8">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-<!-- Card 1: Construction de bâtiments -->
+{% for service in services %}
 <div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border-b-4 border-transparent hover:border-on-tertiary-container">
 <div class="h-64 overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Futuristic glass skyscraper architectural detail with sharp angles and dramatic sky reflection for high-end construction" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAbkz5cPIqomECraAwNWMYYPQeM6oi-5B6bDmMwwgFkY917-OFQxVLrPawsAKiZmWr2mkQCp7qEdYDrIibi43xUHpB7ypndLYJ_80J6_TXTE9MiCamF72hL5Q5N-lJa2Yumizy4YULKXF15u6u-oB2UVpM_532H52KHTgh6AOIoNPCgfi_6IvceP2hHw2VnE5LXVEQgV7_YQh5SytqXgzf_NOk_QJ0_4kszXSKUU-yNTs__saeft32R7uW1T3UbksaH6SS_ZOw"/>
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="{{ service.title }}" src="{{ service.image_url|default:'https://lh3.googleusercontent.com/aida-public/AB6AXuBAbkz5cPIqomECraAwNWMYYPQeM6oi-5B6bDmMwwgFkY917-OFQxVLrPawsAKiZmWr2mkQCp7qEdYDrIibi43xUHpB7ypndLYJ_80J6_TXTE9MiCamF72hL5Q5N-lJa2Yumizy4YULKXF15u6u-oB2UVpM_532H52KHTgh6AOIoNPCgfi_6IvceP2hHw2VnE5LXVEQgV7_YQh5SytqXgzf_NOk_QJ0_4kszXSKUU-yNTs__saeft32R7uW1T3UbksaH6SS_ZOw' }}"/>
 </div>
 <div class="p-8 flex flex-col flex-grow">
 <div class="mb-6 flex items-center justify-between">
 <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
-<span class="material-symbols-outlined text-3xl">apartment</span>
+<span class="material-symbols-outlined text-3xl">{{ service.icon }}</span>
 </div>
-<span class="font-label text-[10px] uppercase tracking-widest text-outline">Ref: TDL-CB</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-outline">Ref: {{ service.reference }}</span>
 </div>
-<h3 class="font-serif text-2xl font-bold text-primary mb-4">Construction de bâtiments</h3>
-<p class="font-body text-on-surface-variant leading-relaxed mb-8">
-                            Développement de complexes résidentiels de prestige et de structures commerciales intelligentes alliant durabilité et design architectural audacieux.
-                        </p>
+<h3 class="font-serif text-2xl font-bold text-primary mb-4">{{ service.title }}</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">{{ service.description }}</p>
 <div class="mt-auto flex items-center gap-2 text-on-tertiary-container font-bold group-hover:gap-4 transition-all">
 <span class="font-label uppercase text-sm tracking-wide">En savoir plus</span>
 <span class="material-symbols-outlined">arrow_right_alt</span>
 </div>
 </div>
 </div>
-<!-- Card 2: Travaux publics -->
-<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border-b-4 border-transparent hover:border-on-tertiary-container">
-<div class="h-64 overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Symmetrical view of a massive concrete bridge structure and highway showing civil engineering excellence and infrastructure strength" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLBmcD6YcrHX9QeIEq3L1cccIti8PLO1Kj7lrtuYUIFBaQkxbNMJqvK1MvBXZDn1NSFqK4PF6qSAy-hcekpj5MNtxNMcyJ47h4pSbhC-25exmPgU_sRgNOps4WBL9Mk8tUz54Vb92t9MRxIYAzNmhPQkMtmXHYNAytFdniyskxrvVVVT2EyN7nmtD6LLKljclaXjOwSlAON77IiMj4BLctinfkSELPAlsKWfKpIOuewvVxy63dQDo0GI_Gr_E5C7fPc8sViVna"/>
+{% empty %}
+<div class="col-span-3 text-center py-24 text-on-surface-variant italic">
+    Aucun service renseigné dans la base de données.
 </div>
-<div class="p-8 flex flex-col flex-grow">
-<div class="mb-6 flex items-center justify-between">
-<div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
-<span class="material-symbols-outlined text-3xl">engineering</span>
-</div>
-<span class="font-label text-[10px] uppercase tracking-widest text-outline">Ref: TDL-TP</span>
-</div>
-<h3 class="font-serif text-2xl font-bold text-primary mb-4">Travaux publics</h3>
-<p class="font-body text-on-surface-variant leading-relaxed mb-8">
-                            Maîtrise d'œuvre pour les infrastructures critiques, ponts, et réseaux urbains. Une ingénierie robuste pour le développement collectif durable.
-                        </p>
-<div class="mt-auto flex items-center gap-2 text-on-tertiary-container font-bold group-hover:gap-4 transition-all">
-<span class="font-label uppercase text-sm tracking-wide">En savoir plus</span>
-<span class="material-symbols-outlined">arrow_right_alt</span>
-</div>
-</div>
-</div>
-<!-- Card 3: Rénovation -->
-<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border-b-4 border-transparent hover:border-on-tertiary-container">
-<div class="h-64 overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Modern minimalist interior renovation with premium wood textures and clean white walls highlighting craftsmanship and finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqYDMmTaAP6Qzdz8hGgFQFxY3bgNZjd9V1X-CBlGJRbR85o2BY478VTpOU4ALJ5N0Ro6KDjGp7Ido-dFChqTsufGMh4s1rvJDWm796atEadivZ8fi6q4NS-yVH6Je2wxLfP8n9UQID_CqPaLdF4r-52DXxYtn9Mt_GKIFSxgG0Tn1L1JaaB2q6bws52aN-XNo2tZHvt5ZKeBYUF9l-NOjlgyQYEXiLOaYMZxgCrSsbCeL-riEY53wjr3ozt4jAh3CDxMyw5232"/>
-</div>
-<div class="p-8 flex flex-col flex-grow">
-<div class="mb-6 flex items-center justify-between">
-<div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-container-high text-primary">
-<span class="material-symbols-outlined text-3xl">foundation</span>
-</div>
-<span class="font-label text-[10px] uppercase tracking-widest text-outline">Ref: TDL-RN</span>
-</div>
-<h3 class="font-serif text-2xl font-bold text-primary mb-4">Rénovation</h3>
-<p class="font-body text-on-surface-variant leading-relaxed mb-8">
-                            Restauration de structures historiques et modernisation d'espaces existants avec une attention méticuleuse portée aux détails et aux matériaux.
-                        </p>
-<div class="mt-auto flex items-center gap-2 text-on-tertiary-container font-bold group-hover:gap-4 transition-all">
-<span class="font-label uppercase text-sm tracking-wide">En savoir plus</span>
-<span class="material-symbols-outlined">arrow_right_alt</span>
-</div>
-</div>
-</div>
+{% endfor %}
 </div>
 </div>
 </section>

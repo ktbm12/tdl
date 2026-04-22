@@ -128,24 +128,24 @@
       opacity: .1;
     }
     .hero-decor-1 {
-      width: 400px; height: 400px;
+      width: 280px; height: 280px;
       border: 2px solid white;
       border-radius: 20px;
-      top: -100px; right: -100px;
+      top: 10px; right: -20px;
       animation: floatCard 6s ease-in-out infinite;
     }
     .hero-decor-2 {
-      width: 300px; height: 300px;
+      width: 210px; height: 210px;
       border: 2px solid white;
       border-radius: 50%;
-      bottom: -80px; left: 5%;
+      top: 65%; left: 5%;
       animation: floatCard 8s ease-in-out infinite reverse;
     }
     .hero-decor-3 {
-      width: 200px; height: 200px;
+      width: 140px; height: 140px;
       border: 2px solid rgba(255,255,255,.3);
       border-radius: 30px;
-      top: 25%; right: 10%;
+      top: 15%; right: 8%;
       animation: floatCard 7s ease-in-out infinite;
     }
 
@@ -258,6 +258,11 @@
   <div class="hero-decor hero-decor-1"></div>
   <div class="hero-decor hero-decor-2"></div>
   <div class="hero-decor hero-decor-3"></div>
+
+  <!-- Logo on the left -->
+  <div style="position: absolute; left: 20px; top: 25%; transform: translateY(-50%); z-index: 5; opacity: 0.08;">
+    <img src="image.png" alt="Logo" style="height: 200px; width: auto; object-fit: contain;">
+  </div>
 
   <div class="max-w-7xl mx-auto px-6 flex items-stretch relative z-10" style="height: calc(100vh - 64px);">
 

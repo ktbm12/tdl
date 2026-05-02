@@ -1,8 +1,7 @@
 from .models import SiteSetting
 
 def site_settings(request):
-    try:
-        settings = SiteSetting.objects.first()
-    except:
-        settings = None
+    settings = SiteSetting.objects.first()
+    if not settings:
+        settings = SiteSetting()
     return {'site_settings': settings}
